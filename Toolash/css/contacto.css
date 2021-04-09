@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background: #ecf0f1;
+    font-family: sans-serif;
+    margin: 0 auto;
+}
+/*color letra form*/
+p {
+    color: rgb(44, 62, 80);
+    font-size: 160%;
+    line-height: 155%;
+    padding: 3%;
+    text-indent: 2%;
+    text-align: justify;
+}
+
+h3 {
+    font-size: 175%;
+    line-height: 155%;
+    font-weight: 500;
+    color: rgb(44, 62, 80);
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0;
+}
+
+h4 {
+    font-size: 175%;
+    line-height: 155%;
+    font-weight: 500;
+    color: #f4f4f4;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    color: #f4f4f4;
+}
+
+ul li i {
+    font-size: 100%;
+    line-height: 155%;
+    font-weight: 500;
+    color: #f4f4f4;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0;
+}
+
+.contacto {
+    background: rgb(249, 231, 159);
+}
+
+.contacto form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.contacto form label {
+    display: block;
+}
+
+.contacto form p {
+
+    margin: 0;
+    padding: 1em;
+}
+
+.contacto form .block {
+    grid-column: 1 / 3;
+}
+
+/*Color letras de casillas*/
+.contacto form button,
+.contacto form input,
+.contacto form textarea {
+    width: 100%;
+    padding: .7em;
+    border: none;
+    background: none;
+    outline: 0;
+    color: rgb(44, 62, 80);
+    border-bottom: 1px solid rgb(44, 62, 80);
+}
+
+.contacto form button {
+    background: rgb(44, 62, 80);
+    border: 0;
+    text-transform: uppercase;
+    padding: 1em;
+}
+
+.contacto form button:hover,
+.contacto form button:focus {
+    background: #d63031;
+    color: #fff;
+    transition: background-color 1s ease-out;
+    outline: 0;
+}
+
+
+/* Informacion de contacto */
+
+.info-contacto {
+    background: rgb(151, 180, 179);
+}
+
+.info-contacto h4,
+.info-contacto ul,
+.info-contacto p {
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+
+
+/* Responsive */
+
+@media(min-width: 768px) {
+    body {
+        padding: 0 0em;
+    }
+    .con-contacto {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+    .con-contacto>* {
+        padding: 2em;
+    }
+    .info-contacto h4,
+    .info-contacto ul,
+    .info-contacto p {
+        text-align: left;
+    }
+    .error-control {
+        border: 1px solid red;
+    }
+
+    label.error {
+        color: red;
+        width: 300px;
+        font-size: 0.8em;
+        margin-top: -5px;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
+
+
+

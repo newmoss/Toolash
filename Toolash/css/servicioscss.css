@@ -1,0 +1,51 @@
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.col-md{
+    display: flex;
+        width: auto;
+        max-width: 950px;
+        height: auto;
+        background-color: blanchedalmond;
+        border: 3px solid #212529;
+        border-radius: 2px;
+        box-shadow: 1px 1px 4px 2px black (0 ,0 ,0 .2);
+        }
+
+
+.header, .descipcion{
+    padding: 20px;
+    text-align: center;
+
+}
+
+.header img{
+    margin: 20px 30px;
+}
+
+.descipcion p{
+    margin: 20px 30px;
+}
+   
+img{
+    height: auto;
+    width: auto;
+    max-height: 200px;
+    max-width: 200px;
+}
+
+p{
+    font-size: 20px;
+}
+h1 {
+    font-size: 175%;
+    line-height: 155%;
+    font-weight: 500;
+    color: black;
+    text-align: center;
+    padding: 0;
+}
+      

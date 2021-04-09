@@ -1,0 +1,100 @@
+/*index*/
+
+body{
+    background-color:rgb(249, 231, 159);
+}
+
+#a{
+    font-size: 200%;
+    font-family:cursive;
+    text-align: right;
+}
+/*otra fila*/
+.columna1 {
+    float: center;
+    margin: 0 auto;
+    width: 60%;
+    height: auto;
+    padding: 1%;
+    border: 6px solid rgb(44, 62, 80);
+}
+
+.columna1 h3{
+    font-size: 400%;
+    float:center;
+    height: auto;
+    margin: 0 auto;
+}
+
+.barra {
+    float:center;
+    margin: 0 auto;
+    width: 60%;
+    height: auto;
+    padding: 2%;
+    
+}
+.barra img{
+    width:250px; 
+    height:300px;
+}
+
+
+/*footer*/
+footer {
+    background: #212529;
+    width: 100%;
+    overflow: auto;
+}
+
+.iconos-text {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.iconos-texto-iconos {
+    float: left;
+    width: 20%;
+    padding: 2%;
+}
+
+.iconos-texto {
+    float: left;
+    width: 60%;
+    padding: 4% 4% 2% 0;
+}
+
+.footer-nav {
+    text-align: right;
+}
+
+.footer-nav a {
+    font-size: 160%;
+    color: #c3d7df;
+    font-weight: 300;
+    
+}
+
+.footer-nav a:hover {
+    color: #f5f5f5;
+}
+
+.social {
+    list-style-type: none;
+    text-align: center;
+    
+}
+
+.social li {
+    display: inline;
+}
+
+.social li a img{
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    float: right;
+    padding: 2%;
+}
+
+
