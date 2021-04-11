@@ -91,19 +91,24 @@ ul li i {
     border-bottom: 1px solid rgb(44, 62, 80);
 }
 
-.contacto form button {
-    background: rgb(44, 62, 80);
-    border: 0;
-    text-transform: uppercase;
-    padding: 1em;
-}
+.butom-pres a{
+    
+    text-shadow: 0px 0px 8px black;
+    font-size: 30px;
+    color: honeydew;
+    text-decoration: none;
+    display: block;
+    border: 1px solid red;
+    width: 300px;
+    height: 45px;
+    text-align: center;
+    padding-top: 0px;
+    margin-right: -100mm;
 
-.contacto form button:hover,
-.contacto form button:focus {
-    background: #d63031;
-    color: #fff;
-    transition: background-color 1s ease-out;
-    outline: 0;
+    background-color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0px 0px 8px black;
+
 }
 
 
