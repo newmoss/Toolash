@@ -3,6 +3,9 @@
 body{
     background-color:#ebe9eb;
 }
+body {
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 
 #a{
     font-size: 200%;
