@@ -99,7 +99,7 @@ ul li i {
     text-decoration: none;
     display: block;
     border: 1px solid hsl(220, 58%, 19%);
-    width: 300px;
+    width: 500px;
     height: 45px;
     text-align: center;
     padding-top: 0px;
@@ -116,7 +116,7 @@ ul li i {
 
 .butom-pres a:hover{
     background-color: rgba(0, 26, 255, 0.74);
-    width: 300px;
+    width: 700px;
 }
 
 /* Informacion de contacto */
