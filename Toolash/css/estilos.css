@@ -107,5 +107,35 @@ footer {
 }
 
 
+.butom-buy a{
+    text-decoration:  none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 5px;
+
+    display: block;
+    width: 78px;
+    height: 35px;
+    background-color: #0d6efd;
+    border-radius: 16px;
+    
+
+    transition: 1s;
+    -o-webkit-transition: 1s;
+    transition: 1s;
+    -ms-transition: 1s;
+}
+
+.butom-buy a:hover{
+    background-color: rgba(0, 26, 255, 0.74);
+    width: 95px;
+}
+
+
+
+
+
 
 
