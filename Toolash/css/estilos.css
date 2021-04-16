@@ -29,6 +29,11 @@ body {
     margin: 0 auto;
 }
 
+
+.respon{
+    width: 100%;
+    max-width: 300px;
+}
 .barra {
     float:center;
     margin: auto;
@@ -40,6 +45,7 @@ body {
 .barra img{
     width:250px; 
     height:300px;
+    border: 4px solid #ebe9eb;
 }
 
 
