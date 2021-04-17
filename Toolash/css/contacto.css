@@ -10,7 +10,7 @@ body {
     margin: 0 auto;
 }
 /*color letra form*/
-p {
+h1 {
     color: rgb(44, 62, 80);
     font-size: 160%;
     line-height: 155%;
@@ -99,11 +99,11 @@ ul li i {
     text-decoration: none;
     display: block;
     border: 1px solid hsl(220, 58%, 19%);
-    width: 500px;
+    width: 400px;
     height: 45px;
     text-align: center;
     padding-top: 0px;
-    margin-right: -86mm;
+    margin-right: -65mm;
     border-radius: 20px;
 
     background-color: hsl(220, 58%, 19%);
@@ -116,13 +116,15 @@ ul li i {
 
 .butom-pres a:hover{
     background-color: rgba(0, 26, 255, 0.74);
-    width: 700px;
+    width: 400px;
 }
 
 /* Informacion de contacto */
 
 .info-contacto {
     background: rgb(151, 180, 179);
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .info-contacto h4,

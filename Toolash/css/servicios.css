@@ -13,31 +13,8 @@
         border: 3px solid #212529;
         border-radius: 2px;
         box-shadow: 1px 1px 4px 2px black (0 ,0 ,0 .2);
-        }
-
-
-.header, .descipcion{
-    padding: 20px;
-    text-align: center;
-
 }
-
-.header img{
-    margin: 20px 30px;
-}
-
-.descipcion p{
-    margin: 20px 30px;
-}
-   
-img{
-    height: auto;
-    width: auto;
-    max-height: 200px;
-    max-width: 200px;
-}
-
-p{
+h2{
     font-size: 20px;
 }
 h1 {
@@ -48,10 +25,9 @@ h1 {
     text-align: center;
     padding: 0;
 }
-
 .imagen_responsiva{
     width: 100%;
-    max-width: 300px;
+    max-width: 200px;
 }
       
 .conf_div{

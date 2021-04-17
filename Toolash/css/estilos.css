@@ -43,62 +43,12 @@ body {
     margin: 10px;
 }
 
-
-/*footer*/
-footer {
-    background: #212529;
-    width: 100%;
-    overflow: auto;
+.marg{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
-
-.iconos-text {
-    width: 100%;
-    margin: 0 auto;
-}
-
-.iconos-texto-iconos {
-    float: left;
-    width: 30%;
-    padding: 2%;
-}
-
-.iconos-texto {
-    float: left;
-    width: 60%;
-    padding: 4% 4% 2% 0;
-}
-
-.footer-nav {
-    text-align: right;
-}
-
-.footer-nav a {
-    font-size: 110%;
-    color: #c3d7df;
-    font-weight: 300%;
-    
-}
-
-.footer-nav a:hover {
-    color: #f5f5f5;
-}
-
-.social {
-    list-style-type: none;
-    text-align: center;
-    
-}
-
-.social li {
-    display: inline;
-}
-
-.social li a img{
-    width: 100%;
-    max-width: 70px;
-    height: auto;
-    float: right;
-    padding: 1%;
+.bot_bord{
+    margin-left: 10px;
 }
 
 
