@@ -25,8 +25,13 @@ body {
     background-size: cover;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 400px) {
     .showcase .showcase-text {
         padding: 7rem;
+    }
+    .showcase .showcase-img {
+        min-height: 270px;
+        min-width: 270;
+        background-size: cover;
     }
 }
