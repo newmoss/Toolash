@@ -14,12 +14,12 @@ body {
 }
 /*otra fila*/
 .columna1 {
+    background-color: antiquewhite;
     float: center;
     margin: 0 auto;
-    width: 60%;
-    height: auto;
     padding: 1%;
-    border: 6px solid rgb(44, 62, 80);
+    border: 6px ;
+
 }
 
 .columna1 h3{
@@ -50,7 +50,6 @@ body {
 .bot_bord{
     margin-left: 10px;
 }
-
 
 
 

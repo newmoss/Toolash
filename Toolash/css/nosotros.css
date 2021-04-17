@@ -25,7 +25,7 @@ body {
     background-size: cover;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 350px) {
     .showcase .showcase-text {
         padding: 7rem;
     }
