@@ -1,5 +1,5 @@
 
-
+/*
 body{
     background: rgba(255, 255, 255, 0.486);
 }
@@ -232,3 +232,12 @@ body{
     border-radius: 20%;
 }
 
+@media (min-width: 350px) {
+	.product-desc p{
+		margin: left;
+		display: block;
+		width: 450px;
+		height: 200px;
+	   
+	}
+}
