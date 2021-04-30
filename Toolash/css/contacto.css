@@ -10,7 +10,7 @@ body {
     margin: 0 auto;
 }
 /*color letra form*/
-h1 {
+.con-contacto p {
     color: rgb(44, 62, 80);
     font-size: 160%;
     line-height: 155%;
