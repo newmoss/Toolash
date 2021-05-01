@@ -79,7 +79,7 @@ ul li i {
 }
 
 /*Color letras de casillas*/
-.contacto form button,
+
 .contacto form input,
 .contacto form textarea {
     width: 100%;
@@ -91,19 +91,19 @@ ul li i {
     border-bottom: 1px solid rgb(44, 62, 80);
 }
 
-.butom-pres a{
-    
+.contacto form button{
+    width: 100%;
     text-shadow: 0px 0px 8px black;
     font-size: 30px;
     color: honeydew;
     text-decoration: none;
     display: block;
     border: 1px solid hsl(220, 58%, 19%);
-    width: 400px;
+    width: 400px center;
     height: 45px;
     text-align: center;
     padding-top: 0px;
-    margin-right: -65mm;
+    outline: 0;
     border-radius: 20px;
 
     background-color: hsl(220, 58%, 19%);
@@ -114,9 +114,9 @@ ul li i {
     -ms-transition: 1s;
 }
 
-.butom-pres a:hover{
+.contacto form button:hover{
     background-color: rgba(0, 26, 255, 0.74);
-    width: 400px;
+    width: 450px center;
 }
 
 /* Informacion de contacto */
