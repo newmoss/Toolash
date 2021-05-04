@@ -6,7 +6,9 @@ body{
 body {
     font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-
+.footer{
+    padding-top: 10% !important;
+}
 #a{
     font-size: 200%;
     font-family:cursive;
@@ -50,7 +52,9 @@ body {
 .bot_bord{
     margin-left: 10px;
 }
-
+.boton_bord{
+    margin-right: 20px;
+}
 
 
 
