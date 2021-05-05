@@ -15,6 +15,8 @@
     <!--CSS-->
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/login.css">
+
+    <link rel="stylesheet" href="css/registrar.css">
     <!-- fontawesome-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
         integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
@@ -51,90 +53,33 @@
                 <a class="nav-item nav-link" href="lol4.html">Contacto</a>
             </div>
             <div class="d-flex flex-row justify-content-around ">
-                <a href="lol7.html" class="btn btn-outline-primary boton_bord">Registrar</a>
-                <a href="lol8.html" class="btn btn-outline-danger active ">Iniciar sesion</a>
+                <a href="lol8.html" class="btn btn-outline-danger bot_bord active ">Iniciar sesion</a>
             </div>
         </div>
     </nav>
 
-    <form id="formulario" class="formulario">
-
-        <h1>Inicio de sesion</h1>
-        <div class="contenedor">
-
-            <div class="input-contenedor">
+    <div class="container marg_sup">
+        <div class="header">
+            <h1>Inicio de sesion</h1>
+        </div>
+        <form id="form" class="form">
+            <div class="form-control">
                 <i class="fas fa-envelope icon"></i>
-                <input type="text" placeholder="Correo Electronico" id="correo">
-
+                <input type="email" placeholder="Correo Electronico" id="email">
+                <small>Error message</small>
             </div>
-
-            <div class="input-contenedor">
+            <div class="form-control">
                 <i class="fas fa-key icon"></i>
                 <input type="password" placeholder="Contraseña" id="password">
-
+                <small>Error message</small>
             </div>
-            <input type="submit" value="Iniciar" class="button">
-            <a class="link" href="lol7.html">¿Olvidaste la contraseña?</a>
+            <button>Submit</button>
+            <a class="link" href="lol9.html">¿Olvidaste la contraseña?</a>
             <p><br>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
             <p>¿No tienes una cuenta? <a class="link" href="lol7.html">Registrate </a></p>
-            
-        </div>
-    </form>
-    <!--FOOTER-->
-    <footer style="background-color: #212529">
-        <div class="container">
-            <div class="row ">
-                <!--Links y copy-->
-                <div class="col-md-4 text-center text-md-left ">
-                    <div class="py-0">
-                        <h3 class="my-4 text-white"><span class="mx-2 font-italic text-warning">TOOLASH</span></h3>
-                        <p class="footer-links font-weight-bold">
-                            <a class="text-white" href="lol.html">Inicio</a>
-                            |
-                            <a class="text-white" href="lol2.html">Nosotros</a>
-                            |
-                            <a class="text-white" href="lol5.html">Ventas</a>
-                            |
-                            <a class="text-white" href="lol6.html">Tiendas</a>
-                        </p>
-                        <p class="text-light py-4 mb-4">&copy;2012 Newmoss Solutions Inc.</p>
+        </form>
+    </div>
 
-                    </div>
-                </div>
-
-                <!--Redes sociales-->
-                <div class="col-md-4 text-white my-4 text-center text-md-left ">
-                    <div class="py-2 footer">
-                        <a href="https://www.facebook.com/toolash.imperio/"><i
-                                class="fab fa-facebook fa-4x text-primary mx-3"></i></a>
-
-                        <a href="https://www.instagram.com/_toolash_original_/"><i
-                                class="fab fa-instagram fa-4x text-danger mx-3"></i></a>
-                    </div>
-                </div>
-
-                <!--Info-->
-                <div class="col-md-4 text-white text-center text-md-left ">
-                    <div class="py-2 my-4">
-                        <div>
-                            <p class="text-white"> <i class="fa fa-map-marker mx-4"></i>
-                                Padre Mariano 356, Providencia, Metro Pedro de Valdivia</p>
-                        </div>
-
-                        <div>
-                            <p><i class="fa fa-phone  mx-4 "></i> +56 (2) 2 622 08 70</p>
-                        </div>
-
-                        <div>
-                            <p><i class="fa fa-envelope  mx-4"></i><a
-                                    href="mailto:support@eduonix.com">contacto@toolash.com</a></p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </footer>
     <script src="js/login.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

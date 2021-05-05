@@ -1,6 +1,7 @@
 const form = document.getElementById('form');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
+const password2 = document.getElementById('password2');
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
@@ -13,6 +14,7 @@ function checkInputs() {
 
 	const emailValue = email.value.trim();
 	const passwordValue = password.value.trim();
+	const password2Value = password2.value.trim();
 
 
 	if (emailValue === '') {
@@ -26,6 +28,15 @@ function checkInputs() {
 		setErrorFor(password, 'Password no debe ingresar en blanco.');
 	} else {
 		setSuccessFor(password);
+	}
+	//pass coincidan
+	if (password2Value === '') {
+		setErrorFor(password2, 'Password2 no debe ingresar en blanco');
+	} else if (passwordValue !== password2Value) {
+		setErrorFor(password, 'Passwords no coinciden');
+		setErrorFor(password2, 'Passwords no coinciden');
+	} else {
+		setSuccessFor(password2);
 	}
 }
 

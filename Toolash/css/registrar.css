@@ -88,14 +88,15 @@
 }
 
 .form button {
-	background-color: #212529;
-	border: 2px solid #8e44ad;
-	border-radius: 4px;
-	color: #fff;
-	display: block;
-	font-family: inherit;
-	font-size: 16px;
-	padding: 10px;
-	margin-top: 20px;
-	width: 100%;
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background:  #1a2537;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.form button:hover{
+    background: cadetblue;
 }
