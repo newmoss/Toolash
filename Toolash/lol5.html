@@ -7,11 +7,11 @@
 
     <!--BOOTSTRAP-->
     <link rel="icon" type="image/jgp" href="img/social/icono.png" alt="Icono pestaña">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCW98/SFnGE8fJT3GXwE0ngsV7Zt27NXFoaoApmYm81liuXoPkF0JwJ8ERdknLPM0" crossorigin="anonymous">
-    
+
     <!--CSS-->
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/ventacomp.css">
@@ -19,7 +19,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
         integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
         crossorigin="anonymous"></script>
-        
+
     <title>Venta componentes</title>
 </head>
 
@@ -34,7 +34,7 @@
 
         <!--LOGO-->
         <a class="navbar-brand" href="lol.html">
-            <img src="img/png/logo2.png" width="200" height="100" class="d-inline-block align-top"alt="Logo toolash">
+            <img src="img/png/logo2.png" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
         </a>
 
         <!--LINKS-->
@@ -57,14 +57,15 @@
     </nav>
     <br>
     <div class="container">
-        <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid">
-              <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
-            </div>
-          </nav>
+        <div class="container-fluid">
+            <form id="form" class="form d-flex">
+                <div class="form-control">
+                    <input type="search" id="search" placeholder="Buscar" minlength="2" requeride />
+                    <small>Error message</small>
+                </div>
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
         <div class="row">
             <div class="col-md separaciones_articulos">
                 <div class="card text-center">
@@ -79,7 +80,7 @@
                             <center>
                                 <a href="#">Comprar</a>
                             </center>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -96,7 +97,7 @@
                             <center>
                                 <a href="#">Comprar</a>
                             </center>
-                            </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -106,16 +107,16 @@
                     <img class="card-img-top" src="img/ofertas/3.jpg" alt="Teclado Gamer">
                     <div class="card-body">
                         <h4 class="card-title">Teclado</h4>
-                        <p class="card-text">Teclado Gamer Logitech G Pro RGB, Mecánico, Switch GX Blue, Alámbrico color 
+                        <p class="card-text">Teclado Gamer Logitech G Pro RGB, Mecánico, Switch GX Blue, Alámbrico color
                             <br>negro
-                              </p>
+                        </p>
                         <p class="rebaja"><span class="tachado">$89.990</span> rebaja de un 25%</p>
                         <p class="dinero">$67.500 </p>
                         <div class="butom-buy">
                             <center>
                                 <a href="#">Comprar</a>
                             </center>
-                            </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -138,7 +139,7 @@
                             <center>
                                 <a href="#">Comprar</a>
                             </center>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -156,7 +157,7 @@
                             <center>
                                 <a href="#">Comprar</a>
                             </center>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -174,7 +175,7 @@
                             <center>
                                 <a href="#">Comprar</a>
                             </center>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -196,7 +197,7 @@
                             <center>
                                 <a href="#">Comprar</a>
                             </center>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -214,7 +215,7 @@
                             <center>
                                 <a href="#">Comprar</a>
                             </center>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -232,7 +233,7 @@
                             <center>
                                 <a href="#">Comprar</a>
                             </center>
-                        </div>   
+                        </div>
                     </div>
                 </div>
             </div>
@@ -294,7 +295,7 @@
             </div>
         </div>
     </footer>
-
+    <script src="js/search.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
