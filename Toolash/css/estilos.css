@@ -14,6 +14,9 @@ body {
     font-family:cursive;
     text-align: right;
 }
+h4{
+    margin-top: 10px;
+}
 /*otra fila*/
 .columna1 {
     background-color: antiquewhite;

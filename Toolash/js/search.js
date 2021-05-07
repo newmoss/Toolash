@@ -2,18 +2,19 @@ const form = document.getElementById('form');
 const search = document.getElementById('search');
 
 form.addEventListener('submit', e => {
-	e.preventDefault();
 
-	checkInputs();
+	checkInputs(e);
 });
 
-function checkInputs() {
+function checkInputs(e) {
 	// trim to remove the whitespaces
 
 	const searchValue = search.value.trim();
 
 	if (searchValue === '') {
+		e.preventDefault();
 		setErrorFor(search, 'Rellenar campo');
+		
 	} else {
 		setSuccessFor(search);
 	}

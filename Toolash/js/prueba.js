@@ -9,12 +9,12 @@ const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
 
 form.addEventListener('submit', e => {
-	e.preventDefault();
 
-	checkInputs();
+	checkInputs(e);
+	
 });
 
-function checkInputs() {
+function checkInputs(e) {
 	// trim to remove the whitespaces
 	const nombreValue = nombres.value.trim();
 	const apellidoValue = apellidos.value.trim();
@@ -27,47 +27,58 @@ function checkInputs() {
 
 	if (nombreValue === '') {
 		setErrorFor(nombre, 'No puede dejar el nombre en blanco');
+		e.preventDefault();
 	} else {
 		setSuccessFor(nombre);
 	}
 	if (apellidoValue === '') {
 		setErrorFor(apellido, 'No puede dejar el apellido en blanco');
+		e.preventDefault();
 	} else {
 		setSuccessFor(apellido);
 	}
 	if (emailValue === '') {
 		setErrorFor(email, 'No puede dejar el email en blanco');
+		e.preventDefault();
 	} else if (!isEmail(emailValue)) {
 		setErrorFor(email, 'No ingreso un email válido');
+		e.preventDefault();
 	} else {
 		setSuccessFor(email);
 	}
 	if (telefonoValue === '') {
 		setErrorFor(telefono, 'No puede dejar el telefono en blanco');
+		e.preventDefault();
 	} else {
 		setSuccessFor(telefono);
 	}
 	if (rutValue === '') {
 		setErrorFor(rut, 'No puede dejar el rut en blanco');
+		e.preventDefault();
 	} else {
 		setSuccessFor(rut);
 	}
 	if (direccionValue === '') {
 		setErrorFor(direccion, 'No puede dejar la direccion en blanco');
+		e.preventDefault();
 	} else {
 		setSuccessFor(direccion);
 	}
 	if (passwordValue === '') {
-		setErrorFor(password, 'Password no debe ingresar en blanco.');
+		setErrorFor(password, 'Debe ingresar una contraseña.');
+		e.preventDefault();
 	} else {
 		setSuccessFor(password);
 	}
 	//pass coincidan
 	if (password2Value === '') {
-		setErrorFor(password2, 'Password2 no debe ingresar en blanco');
+		setErrorFor(password2, 'Debe ingresar una contraseña nuevamente');
+		e.preventDefault();
 	} else if (passwordValue !== password2Value) {
-		setErrorFor(password, 'Passwords no coinciden');
-		setErrorFor(password2, 'Passwords no coinciden');
+		setErrorFor(password, 'Las contraseñas no coinciden');
+		e.preventDefault();
+		setErrorFor(password2, 'Las contraseñas no coinciden');
+		e.preventDefault();
 	} else {
 		setSuccessFor(password2);
 	}

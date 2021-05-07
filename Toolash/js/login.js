@@ -3,27 +3,28 @@ const email = document.getElementById('email');
 const password = document.getElementById('password');
 
 form.addEventListener('submit', e => {
-	e.preventDefault();
-
-	checkInputs();
+	
+	checkInputs(e);
 });
 
-function checkInputs() {
+function checkInputs(e) {
 	// trim to remove the whitespaces
-
 	const emailValue = email.value.trim();
 	const passwordValue = password.value.trim();
 
 
 	if (emailValue === '') {
 		setErrorFor(email, 'No puede dejar el email en blanco');
+		e.preventDefault();
 	} else if (!isEmail(emailValue)) {
 		setErrorFor(email, 'No ingreso un email válido');
+		e.preventDefault();
 	} else {
 		setSuccessFor(email);
 	}
 	if (passwordValue === '') {
-		setErrorFor(password, 'Password no debe ingresar en blanco.');
+		setErrorFor(password, 'Debe ingresar una contraseña.');
+		e.preventDefault();
 	} else {
 		setSuccessFor(password);
 	}

@@ -65,11 +65,13 @@
 }
 
 .form-control.success i.fa-check-circle {
+	margin-right: 10px;
 	color: #2ecc71;
 	visibility: visible;
 }
 
 .form-control.error i.fa-exclamation-circle {
+	margin-right: 10px;
 	color: #e74c3c;
 	visibility: visible;
 }
