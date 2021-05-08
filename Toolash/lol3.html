@@ -63,7 +63,18 @@
             </div>
         </div>
     </nav>
-    <br>
+    
+    <!--API TRADUCTOR-->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+                'google_translate_element');
+        }
+    </script>
+
+    <div class="bot_bord marg" id="google_translate_element"></div>
+    <!-- FIN API-->
+
     <!--INFORMACION SERVICIOS-->
     <div class="container">
         <div class="row conf_div">
@@ -172,6 +183,7 @@
         </div>
     </footer>
 
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
