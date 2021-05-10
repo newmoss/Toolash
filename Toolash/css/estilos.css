@@ -7,7 +7,7 @@ body {
     font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .footer{
-    padding-top: 10% !important;
+    padding-top: 1% !important;
 }
 #a{
     font-size: 200%;
@@ -61,7 +61,9 @@ h4{
 .marg_sup{
     margin-top: 100px;
 }
-
+.marg_inf{
+    margin-bottom: 100px;
+}
 
 
 

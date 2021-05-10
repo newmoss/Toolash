@@ -6,13 +6,15 @@
 	background-color: #f7f7f7;
 	padding: 20px 40px;
 }
-.container {
+.containera {
 	background-color: #fff;
 	border-radius: 5px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
 	width: 800px;
 	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .header h2 {
