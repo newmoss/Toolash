@@ -7,7 +7,7 @@ body {
     font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .footer{
-    padding-top: 1% !important;
+    padding-top: 10% !important;
 }
 #a{
     font-size: 200%;
@@ -65,6 +65,9 @@ h4{
     margin-bottom: 100px;
 }
 
+.fo_con{
+    margin-bottom: 160px;
+}
 
 
 
