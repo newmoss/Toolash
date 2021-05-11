@@ -14,10 +14,16 @@
 
     <!--CSS-->
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/gotop.css">
+
+
     <!-- fontawesome-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
         integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
         crossorigin="anonymous"></script>
+    <!--GOTOP-->
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
 
     <title>Toolash INC</title>
 </head>
@@ -62,18 +68,24 @@
             </div>
         </div>
     </nav>
+    <!--INICIO BOTON SUBIR-->
+    <a id="move-to-top" class="animate filling" href="#">
+        <i class="fa fa-angle-up"></i>
+    </a>
 
-     <!--API TRADUCTOR-->
-     <script type="text/javascript">
+    <script src="/js/gotop.js"></script>
+
+    <!--FIN BOTON SUBIR-->
+
+    <!--API TRADUCTOR-->
+    <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({ pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
                 'google_translate_element');
         }
     </script>
-
+    <div class="bot_bord marg" id="google_translate_element"></div>
     <!-- FIN API-->
-
-    <br>
 
     <!---CARRUSEL-->
     <div class="container">
@@ -180,8 +192,8 @@
             </div>
         </div>
     </section>
-
-    <div class="barra">
+    
+    <div class="barra text-center">
         <a href="lol5.html">
             <img src="img/Tecnologia a su servicio/1.png ">
             <img src="img/Tecnologia a su servicio/2.jfif ">
@@ -204,7 +216,7 @@
                             |
                             <a class="text-white" href="lol2.html">Nosotros</a>
                             |
-                            <a class="text-white" href="lol5.html">Ventas</a>
+                            <a class="text-white" href="lol5.1.html">Ventas</a>
                             |
                             <a class="text-white" href="lol6.html">Tiendas</a>
                         </p>
@@ -215,7 +227,6 @@
 
                 <!--Redes sociales-->
                 <div class="col-md-4 text-white my-4 text-center text-md-left ">
-                    <div class="bot_bord marg footer" id="google_translate_element"></div>
                     <div class="py-2 ">
                         <a href="https://www.facebook.com/toolash.imperio/"><i
                                 class="fab fa-facebook fa-4x text-primary mx-3"></i></a>
@@ -247,7 +258,8 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

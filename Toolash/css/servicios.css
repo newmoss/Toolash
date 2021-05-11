@@ -9,8 +9,7 @@
         width: auto;
         max-width: 950px;
         height: auto;
-        background-color: blanchedalmond;
-        border: 3px solid #212529;
+        background-color: white;
         border-radius: 2px;
         box-shadow: 1px 1px 4px 2px black (0 ,0 ,0 .2);
 }
@@ -31,8 +30,7 @@ h1 {
 }
       
 .conf_div{
-    background-color: blanchedalmond;
-    border: 3px solid #212529;
+    background-color: white;
     border-radius: 2px;
     box-shadow: 1px 1px 4px 2px black (0 ,0 ,0 .2);
     margin-bottom: 50px;

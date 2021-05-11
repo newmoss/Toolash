@@ -19,7 +19,7 @@ h4{
 }
 /*otra fila*/
 .columna1 {
-    background-color: antiquewhite;
+    background-color: white;
     float: center;
     margin: 0 auto;
     padding: 1%;
@@ -37,14 +37,14 @@ h4{
 .barra {
     float:center;
     margin: auto;
-    width: 60%;
+    width: auto;
     height: auto;
     padding: 1%;
     
 }
 .barra img{
-    width:250px; 
-    height:300px;
+    width:350px; 
+    height:350px;
     margin: 10px;
 }
 
