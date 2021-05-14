@@ -20,38 +20,37 @@
     <!--GOTOP-->
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 
-    <title>Restablecer contraseña</title>
+    <title>Registrar</title>
 </head>
 
 <body>
 
     <!--MENU NAVBAR-->
-    <nav class="navbar navbar-dark bg-dark navbar-expand-sm sticky-top">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm ">
         <button class="navbar-toggler navbar-toggler-right bot_bord" type="button" data-toggle="collapse"
             data-target="#opciones" aria-controls="opciones" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <!--LOGO-->
-        <a class="navbar-brand" href="lol.html">
+        <a class="navbar-brand" href="1inicio.html">
             <img src="img/png/logo2.png" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
         </a>
 
         <!--LINKS-->
         <div class="collapse navbar-collapse" id="opciones">
             <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link" href="lol.html">Inicio</a>
+                <a class="nav-item nav-link" href="1inicio.html">Inicio</a>
 
-                <a class="nav-item nav-link" href="lol2.html">Nosotros</a>
+                <a class="nav-item nav-link" href="5.3servtec.html">Serv. Tecnico</a>
 
-                <a class="nav-item nav-link" href="lol3.html">Servicios</a>
+                <a class="nav-item nav-link" href="5.2seguridad.html">Seguridad</a>
 
-                <a class="nav-item nav-link" href="lol5.html">Componentes</a>
+                <a class="nav-item nav-link" href="5venta.html">Componentes</a>
 
                 <a class="nav-item nav-link" href="lol4.html">Contacto</a>
-
                 <div class="d-flex flex-row justify-content-around ">
-                    <a href="lol8.html" class="btn btn-outline-danger">
+                    <a href="8login.html" class="btn btn-outline-danger">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
                             class="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -71,17 +70,33 @@
     <script src="/js/gotop.js"></script>
 
     <!--FIN BOTON SUBIR-->
-    <div class="containera marg_sup marg_inf">
+
+    <div class="containera marg">
         <div class="header">
             <h2>
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                    class="bi bi-shield-lock-fill" viewBox="0 0 16 16">
+                    class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                     <path fill-rule="evenodd"
-                        d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm0 5a1.5 1.5 0 0 1 .5 2.915l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99A1.5 1.5 0 0 1 8 5z" />
-                </svg> Restablecer contraseña
+                        d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                </svg> Crear cuenta
             </h2>
         </div>
-        <form id="form" method="POST" class="form" action="lol8.html">
+        <form id="form" method="POST" class="form" action="8login.html">
+            <div class="form-control">
+                <label>Nombres</label>
+                <input type="text" placeholder="Ingrese sus nombres" id="nombres" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Apellidos</label>
+                <input type="text" placeholder="Ingrese sus apellidos" id="apellidos" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
             <div class="form-control">
                 <label>Email</label>
                 <input type="email" placeholder="ejemplo@email.com" id="email" />
@@ -90,21 +105,42 @@
                 <small>Error message</small>
             </div>
             <div class="form-control">
-                <label for="password">Nueva contraseña</label>
+                <label>Telefono</label>
+                <input type="text" placeholder="Ingrese su numero" id="numero" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Rut</label>
+                <input type="text" placeholder="con puntos y guion" id="rut" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Direccion</label>
+                <input type="text" placeholder="" id="direccion" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="password">Contraseña</label>
                 <input type="password" placeholder="Ingrese una contraseña" minlength="4" id="password" />
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
             <div class="form-control">
-                <label for="password2">Repetir contraseña</label>
+                <label for="password2">Repetir Contraseña</label>
                 <input type="password" placeholder="Ingrese su contraseña nuevamente" id="password2" />
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
             <br>
-            <button type="submit" class="btn btn-center">Restablecer</button>
+            <button type="submit" class="btn btn-center">Registrar</button>
         </form>
     </div>
     <!--FOOTER-->
@@ -116,13 +152,13 @@
                     <div class="py-0">
                         <h3 class="my-4 text-white"><span class="mx-2 font-italic text-warning">TOOLASH</span></h3>
                         <p class="footer-links font-weight-bold">
-                            <a class="text-white" href="lol.html">Inicio</a>
+                            <a class="text-white" href="1inicio.html">Inicio</a>
                             |
-                            <a class="text-white" href="lol2.html">Nosotros</a>
+                            <a class="text-white" href="2nosotros.html">Nosotros</a>
                             |
-                            <a class="text-white" href="lol5.html">Ventas</a>
+                            <a class="text-white" href="3servicios.html">Servicios</a>
                             |
-                            <a class="text-white" href="lol6.html">Tiendas</a>
+                            <a class="text-white" href="6tiendas.html">Tiendas</a>
                         </p>
                         <p class="text-light py-4 mb-4">&copy;2012 Newmoss Solutions Inc.</p>
 
@@ -163,7 +199,7 @@
         </div>
     </footer>
 
-    <script src="/js/pass.js"></script>
+    <script src="js/prueba.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

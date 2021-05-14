@@ -25,6 +25,9 @@ function checkInputs(e) {
 	if (passwordValue === '') {
 		setErrorFor(password, 'Debe ingresar una contraseña.');
 		e.preventDefault();
+	} else if (passwordValue.length<4){
+		setErrorFor(password,'Minimo 4 digitos');
+		e.preventDefault();
 	} else {
 		setSuccessFor(password);
 	}

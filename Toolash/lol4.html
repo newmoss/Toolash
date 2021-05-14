@@ -17,27 +17,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
         integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
         crossorigin="anonymous"></script>
-    <!--Validacion con JQUERY-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
-
     <title>Contacto</title>
-    <script>
-        $(function () {
-            $("#mi-formulario").validate({
-                rules: {
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    asunto: "required",
-                    nombres: "requeride",
-                    apellidos: "requeride",
-                    mensaje: "requeride"
-                }//rules
-            }); //$('#mi-formulario').validate
-        }); //function
-    </script>
 
 </head>
 
@@ -51,25 +31,25 @@
         </button>
 
         <!--LOGO-->
-        <a class="navbar-brand" href="lol.html">
+        <a class="navbar-brand" href="1inicio.html">
             <img src="img/png/logo2.png" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
         </a>
 
         <!--LINKS-->
         <div class="collapse navbar-collapse" id="opciones">
             <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link" href="lol.html">Inicio</a>
+                <a class="nav-item nav-link" href="1inicio.html">Inicio</a>
 
-                <a class="nav-item nav-link" href="lol2.html">Nosotros</a>
+                <a class="nav-item nav-link" href="5.3servtec.html">Serv. Tecnico</a>
 
-                <a class="nav-item nav-link" href="lol3.html">Servicios</a>
+                <a class="nav-item nav-link" href="5.2seguridad.html">Seguridad</a>
 
-                <a class="nav-item nav-link" href="lol5.html">Componentes</a>
+                <a class="nav-item nav-link" href="5venta.html">Componentes</a>
 
                 <a class="nav-item nav-link active" href="lol4.html">Contacto</a>
-                
+
                 <div class="d-flex flex-row justify-content-around ">
-                    <a href="lol8.html" class="btn btn-outline-danger">
+                    <a href="8login.html" class="btn btn-outline-danger">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
                             class="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -83,58 +63,58 @@
     </nav>
 
     <!--INICIO FORMULARIO-->
-    <div>
-        <div class="con-contacto">
-            <div class="contacto">
-                <h3>
-                    <center><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
-                      </svg> Contactanos</center>
-                </h3>
-                <form id="mi-formulario" method="POST" action="lol.html">
-                    <p>
-                        <label>Nombres</label>
-                        <input type="text" name="nombres" minlength="3" required>
-                    </p>
-                    <p>
-                        <label>Apellidos</label>
-                        <input type="text" name="apellidos" minlength="3" required>
-                    </p>
-                    <p>
-                        <label>Direccion E-mail</label>
-                        <input type="email" name="email" placeholder="nombre@dominio.cl" required>
-                    </p>
-                    <p>
-                        <label>Asunto</label>
-                        <input type="text" name="asunto" required>
-                    </p>
-                    <p class="block">
-                        <label>Mensaje</label>
-                        <textarea name="Mensaje" required rows="3"></textarea>
-                    </p>
-                    <div>
-                        <center><button type="reset" class="btn btn-center btn-danger">Limpiar</button></center>
-                    </div>
-                    <div>
-                        <center><button type="submit" class="btn btn-center">Enviar</button></center>
-                    </div>
+    <div class="con-contacto">
+        <div class="contacto">
+            <h3>
+                <center><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                        class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
+                    </svg> Contactanos</center>
+            </h3>
+            <form id="mi-formulario" method="POST" action="1inicio.html">
+                <p>
+                    <label>Nombres</label>
+                    <input type="text" name="nombres" id="nombres">
+                </p>
+                <p>
+                    <label>Apellidos</label>
+                    <input type="text" name="apellidos" id="apellidos">
+                </p>
+                <p>
+                    <label>Direccion E-mail</label>
+                    <input type="email" name="email" id="email" placeholder="ejemplo@email.cl">
+                </p>
+                <p>
+                    <label>Asunto</label>
+                    <input type="text" name="asunto" id="asunto">
+                </p>
+                <p class="block">
+                    <label>Mensaje</label>
+                    <textarea name="mensaje" id="mensaje" rows="3"></textarea>
+                </p>
+                <div>
+                    <center><button type="reset" class="btn btn-center btn-danger">Limpiar</button></center>
+                </div>
+                <div>
+                    <center><button type="submit" id="guardar" class="btn btn-center">Enviar</button></center>
+                </div>
 
-                </form>
-            </div>
-            <div class="info-contacto">
-                <h4>Mas Informacion</h4>
-                <ul>
-                    <li><i></i> Padre Mariano 356, Providencia, Metro Pedro de Valdivia</li>
-                    <li><i></i> +56 (2) 2 622 08 70</li>
-                    <li><i></i> contacto@toolash.com</li>
-                    <br>
-                    <li><i></i> Solicita más información de nuestras soluciones por medio de un ejecutivo comercial que
-                        podrá orientarte mejor con los servicios adecuados para tu necesidad.</li>
-                </ul>
-            </div>
+            </form>
+        </div>
+        <div class="info-contacto">
+            <h4>Mas Informacion</h4>
+            <ul>
+                <li><i></i> Padre Mariano 356, Providencia, Metro Pedro de Valdivia</li>
+                <li><i></i> +56 (2) 2 622 08 70</li>
+                <li><i></i> contacto@toolash.com</li>
+                <br>
+                <li><i></i> Solicita más información de nuestras soluciones por medio de un ejecutivo comercial que
+                    podrá orientarte mejor con los servicios adecuados para tu necesidad.</li>
+            </ul>
         </div>
     </div>
-    </div>
+
     <!--FINAL FORMULARIO-->
 
     <!--FOOTER-->
@@ -146,13 +126,13 @@
                     <div class="py-0">
                         <h3 class="my-4 text-white"><span class="mx-2 font-italic text-warning">TOOLASH</span></h3>
                         <p class="footer-links font-weight-bold">
-                            <a class="text-white" href="lol.html">Inicio</a>
+                            <a class="text-white" href="1inicio.html">Inicio</a>
                             |
-                            <a class="text-white" href="lol2.html">Nosotros</a>
+                            <a class="text-white" href="2nosotros.html">Nosotros</a>
                             |
-                            <a class="text-white" href="lol5.html">Ventas</a>
+                            <a class="text-white" href="3servicios.html">Servicios</a>
                             |
-                            <a class="text-white" href="lol6.html">Tiendas</a>
+                            <a class="text-white" href="6tiendas.html">Tiendas</a>
                         </p>
                         <p class="text-light py-4 mb-4">&copy;2012 Newmoss Solutions Inc.</p>
 
@@ -192,16 +172,18 @@
             </div>
         </div>
     </footer>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+    <!--Validacion con JQUERY-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+    <script src="/js/contact.js"></script>
+
+
 
 </body>
 

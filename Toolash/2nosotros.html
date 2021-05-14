@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--BOOTSTRAP-->
     <link rel="icon" type="image/jgp" href="img/social/icono.png" alt="Icono pestaña">
@@ -14,13 +14,15 @@
 
     <!--CSS-->
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/registrar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+    <link rel="stylesheet" href="css/nosotros.css">
     <link rel="stylesheet" href="css/gotop.css">
-    <!--GOTOP-->
-    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 
-    <title>Restablecer contraseña</title>
+    <!-- fontawesome-->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+        integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
+
+    <title>Nosotros</title>
 </head>
 
 <body>
@@ -33,25 +35,25 @@
         </button>
 
         <!--LOGO-->
-        <a class="navbar-brand" href="lol.html">
+        <a class="navbar-brand" href="1inicio.html">
             <img src="img/png/logo2.png" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
         </a>
 
         <!--LINKS-->
         <div class="collapse navbar-collapse" id="opciones">
             <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link" href="lol.html">Inicio</a>
+                <a class="nav-item nav-link" href="1inicio.html">Inicio</a>
 
-                <a class="nav-item nav-link" href="lol2.html">Nosotros</a>
+                <a class="nav-item nav-link" href="5.3servtec.html">Serv. Tecnico</a>
 
-                <a class="nav-item nav-link" href="lol3.html">Servicios</a>
+                <a class="nav-item nav-link" href="5.2seguridad.html">Seguridad</a>
 
-                <a class="nav-item nav-link" href="lol5.html">Componentes</a>
+                <a class="nav-item nav-link" href="5venta.html">Componentes</a>
 
                 <a class="nav-item nav-link" href="lol4.html">Contacto</a>
 
                 <div class="d-flex flex-row justify-content-around ">
-                    <a href="lol8.html" class="btn btn-outline-danger">
+                    <a href="8login.html" class="btn btn-outline-danger">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
                             class="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -71,28 +73,61 @@
     <script src="/js/gotop.js"></script>
 
     <!--FIN BOTON SUBIR-->
-    <div class="containera marg_sup fo_con">
-        <div class="header">
-            <h2>
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                    class="bi bi-shield-lock-fill" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zm0 5a1.5 1.5 0 0 1 .5 2.915l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99A1.5 1.5 0 0 1 8 5z" />
-                </svg> Restablecer contraseña
-            </h2>
-        </div>
-        <form id="form" method="POST" class="form" action="lol9.html">
-            <div class="form-control">
-                <label>Email</label>
-                <input type="email" placeholder="ejemplo@email.com" id="email" />
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small>
+    <!--API TRADUCTOR-->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+                'google_translate_element');
+        }
+    </script>
+
+    <div class="bot_bord marg" id="google_translate_element"></div>
+    <!-- FIN API-->
+
+
+    <!--INFORMACION NOSOTROS-->
+    <section class="showcase">
+        <div class="container-fluid p-2.5">
+            <div class="row no-gutters">
+
+                <div class="col-lg-6 order-lg-2 text-white showcase-img"
+                    style="background-image: url('img/nosotros/nosotros.jpg');"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Nosotros</h2>
+                    <p class="lead mb-0">Nuestra especialización técnica, amplia experiencia en el sector y la continua
+                        actualización en el conocimiento de las últimas tecnologías, nos permite proporcionar a nuestros
+                        clientes todo tipo de soluciones a medida, cumpliendo con
+                        los requerimientos específicos de su negocio y que aporten un valor agregado y un beneficio
+                        real, mejorando así la productividad general de sus empresas.</p>
+                </div>
             </div>
-            <br>
-            <button type="submit" class="btn btn-center">Restablecer</button>
-        </form>
-    </div>
+            <div class="row no-gutters">
+                <div class="col-lg-6 text-white showcase-img"
+                    style="background-image: url('img/nosotros/nuestro-trabajo.png');"></div>
+                <div class="col-lg-6 my-auto showcase-text">
+                    <h2>Nuestro Trabajo</h2>
+                    <p class="lead mb-0">Realizamos servicio tecnico, instalaciones de seguridad y ventas, las
+                        certificamos dentro de los estándares
+                        de instalaciones vigentes, utilizando las herramientas necesarias en cada servicio. Contamos con
+                        un
+                        equipo de trabajo con gran experiencia y con capacidad demostrada
+                        para llevar a término los servicios e instalaciones de gran tamaño. </p>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img"
+                    style="background-image: url('img/nosotros/equipo-todos.jpg');"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Nuestro Equipo</h2>
+                    <p class="lead mb-0">Nuestro equipo humano, que está formado por profesionales con amplios
+                        conocimientos, capacidad técnica y experiencia en el sector de las telecomunicaciones. Y que por
+                        sobre todo nos entregan: Compromiso, Dedicación, Trabajo en equipo
+                        transformándose así en los 3 pilares de nuestra compañía.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!--FOOTER-->
     <footer style="background-color: #212529">
         <div class="container">
@@ -102,13 +137,13 @@
                     <div class="py-0">
                         <h3 class="my-4 text-white"><span class="mx-2 font-italic text-warning">TOOLASH</span></h3>
                         <p class="footer-links font-weight-bold">
-                            <a class="text-white" href="lol.html">Inicio</a>
+                            <a class="text-white" href="1inicio.html">Inicio</a>
                             |
-                            <a class="text-white" href="lol2.html">Nosotros</a>
+                            <a class="text-white" href="2nosotros.html">Nosotros</a>
                             |
-                            <a class="text-white" href="lol5.html">Ventas</a>
+                            <a class="text-white" href="3servicios.html">Servicios</a>
                             |
-                            <a class="text-white" href="lol6.html">Tiendas</a>
+                            <a class="text-white" href="6tiendas.html">Tiendas</a>
                         </p>
                         <p class="text-light py-4 mb-4">&copy;2012 Newmoss Solutions Inc.</p>
 
@@ -149,7 +184,8 @@
         </div>
     </footer>
 
-    <script src="/js/email_pass.js"></script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -159,6 +195,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>

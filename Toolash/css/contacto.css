@@ -4,11 +4,7 @@
     border: 0;
 }
 
-body {
-    background: #ebe9eb;
-    font-family: sans-serif;
-    margin: 0 auto;
-}
+
 /*color letra form*/
 .con-contacto p {
     color: rgb(44, 62, 80);
@@ -19,7 +15,7 @@ body {
     text-align: justify;
 }
 
-h3 {
+.con-contacto h3 {
     font-size: 175%;
     line-height: 155%;
     font-weight: 500;
@@ -29,7 +25,7 @@ h3 {
     padding: 0;
 }
 
-h4 {
+.con-contacto h4 {
     font-size: 175%;
     line-height: 155%;
     font-weight: 500;
@@ -39,13 +35,13 @@ h4 {
     padding: 0;
 }
 
-ul {
+.con-contacto ul {
     list-style: none;
     padding: 0;
     color: #f4f4f4;
 }
 
-ul li i {
+.con-contacto ul li i {
     font-size: 100%;
     line-height: 155%;
     font-weight: 500;
@@ -56,7 +52,8 @@ ul li i {
 }
 
 .contacto {
-    background: #ebe9eb;
+    background: white;
+
 }
 
 .contacto form {
@@ -111,8 +108,6 @@ ul li i {
 
 .info-contacto {
     background: rgb(151, 180, 179);
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 .info-contacto h4,
@@ -121,7 +116,21 @@ ul li i {
     text-align: center;
     margin: 0 0 1rem 0;
 }
+.marg_form{
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+.error-control {
+    border: 1px solid red;
+}
 
+label.error {
+    color: red;
+    width: 190px;
+    font-size: 0.8em;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
 
 /* Responsive */
 
