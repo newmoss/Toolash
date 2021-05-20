@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--BOOTSTRAP-->
+    <link rel="icon" type="image/jgp" href="{% static 'tool/img/social/icono.png' %}" alt="Icono pestaña">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCW98/SFnGE8fJT3GXwE0ngsV7Zt27NXFoaoApmYm81liuXoPkF0JwJ8ERdknLPM0" crossorigin="anonymous">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'tool/css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'tool/css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'tool/css/registrar.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'tool/css/gotop.css' %}">
+    <!--GOTOP-->
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
+    <title> Unirse</title>
+</head>
+
+<body>
+
+    <!--MENU NAVBAR-->
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm sticky-top">
+        <button class="navbar-toggler navbar-toggler-right bot_bord" type="button" data-toggle="collapse"
+            data-target="#opciones" aria-controls="opciones" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--LOGO-->
+        <a class="navbar-brand" href="{% url 'inicio' %}">
+            <img src="{% static 'tool/img/png/logo2.png' %}" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
+        </a>
+
+        <!--LINKS-->
+        <div class="collapse navbar-collapse" id="opciones">
+            <div class="navbar-nav mr-auto ml-auto text-center">
+                <a class="nav-item nav-link" href="{% url 'inicio' %}">Inicio</a>
+
+                <a class="nav-item nav-link" href="{% url 'servtec' %}">Serv. Tecnico</a>
+
+                <a class="nav-item nav-link" href="{% url 'seguridad' %}">Seguridad</a>
+
+                <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
+
+                <a class="nav-item nav-link" href="lol4.html">Contacto</a>
+
+                <div class="d-flex flex-row justify-content-around ">
+                    <a href="{% url 'login' %}" class="btn btn-outline-danger active">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg> Unirse
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <!--INICIO BOTON SUBIR-->
+    <a id="move-to-top" class="animate filling" href="#">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+    <script src="{% static 'tool/js/gotop.js' %}"></script>
+
+    <!--FIN BOTON SUBIR-->
+    <div class="containera marg_sup marg_inf">
+        <div class="header">
+            <h1>
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="60" fill="currentColor"
+                    class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                    <path fill-rule="evenodd"
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                </svg> Inicio de sesion
+            </h1>
+        </div>
+        <form id="form" method="POST" class="form" action="{% url 'inicio' %}">
+            <div class="form-control">
+                <label></label>
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" placeholder="Correo Electronico" id="email">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label></label>
+                <i class="fas fa-key icon"></i>
+                <input type="password" placeholder="Contraseña" id="password">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-center">Ingresar</button>
+            <a class="link" href="{% url 'emailpass' %}">¿Olvidaste la contraseña?</a>
+            <p><br>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+            <p>¿No tienes una cuenta? <a class="link" href="{% url 'registro' %}">Registrate </a></p>
+        </form>
+    </div>
+    <!--FOOTER-->
+    <footer style="background-color: #212529">
+        <div class="container">
+            <div class="row ">
+                <!--Links y copy-->
+                <div class="col-md-4 text-center text-md-left ">
+                    <div class="py-0">
+                        <h3 class="my-4 text-white"><span class="mx-2 font-italic text-warning">TOOLASH</span></h3>
+                        <p class="footer-links font-weight-bold">
+                            <a class="text-white" href="{% url 'inicio' %}">Inicio</a>
+                            |
+                            <a class="text-white" href="{% url 'nosotros' %}">Nosotros</a>
+                            |
+                            <a class="text-white" href="{% url 'servicios' %}">Servicios</a>
+                            |
+                            <a class="text-white" href="{% url 'tiendas' %}">Tiendas</a>
+                        </p>
+                        <p class="text-light py-4 mb-4">&copy;2012 Newmoss Solutions Inc.</p>
+
+                    </div>
+                </div>
+
+                <!--Redes sociales-->
+                <div class="col-md-4 text-white my-4 text-center text-md-left ">
+                    <div class="py-2 footer">
+                        <a href="https://www.facebook.com/toolash.imperio/"><i
+                                class="fab fa-facebook fa-4x text-primary mx-3"></i></a>
+
+                        <a href="https://www.instagram.com/_toolash_original_/"><i
+                                class="fab fa-instagram fa-4x text-danger mx-3"></i></a>
+                    </div>
+                </div>
+
+                <!--Info-->
+                <div class="col-md-4 text-white text-center text-md-left ">
+                    <div class="py-2 my-4">
+                        <div>
+                            <p class="text-white"> <i class="fa fa-map-marker mx-4"></i>
+                                Padre Mariano 356, Providencia, Metro Pedro de Valdivia</p>
+                        </div>
+
+                        <div>
+                            <p><i class="fa fa-phone  mx-4 "></i> +56 (2) 2 622 08 70</p>
+                        </div>
+
+                        <div>
+                            <p><i class="fa fa-envelope  mx-4"></i><a
+                                    href="mailto:support@eduonix.com">contacto@toolash.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'tool/js/login.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
