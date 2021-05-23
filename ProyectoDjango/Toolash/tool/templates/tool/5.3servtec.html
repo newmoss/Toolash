@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--BOOTSTRAP-->
-    <link rel="icon" type="image/jgp" href="img/social/icono.png" alt="Icono pestaña">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCW98/SFnGE8fJT3GXwE0ngsV7Zt27NXFoaoApmYm81liuXoPkF0JwJ8ERdknLPM0" crossorigin="anonymous">
+    <link rel="icon" type="image/jgp" href="{% static 'tool/img/social/icono.png' %}" alt="Icono pestaña">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"integrity="sha384-MCW98/SFnGE8fJT3GXwE0ngsV7Zt27NXFoaoApmYm81liuXoPkF0JwJ8ERdknLPM0" crossorigin="anonymous">
 
     <!--CSS-->
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/ventacomp.css">
-    <link rel="stylesheet" href="css/gotop.css">
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/estilos.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/ventacomp.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/gotop.css' %}">
+
+ 
 
     <!-- fontawesome-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
@@ -35,25 +35,25 @@
         </button>
 
         <!--LOGO-->
-        <a class="navbar-brand" href="1inicio.html">
-            <img src="img/png/logo2.png" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
+        <a class="navbar-brand" href="{% url 'inicio' %}">
+            <img src="{% static 'tool/img/png/logo2.png' %}" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
         </a>
 
         <!--LINKS-->
         <div class="collapse navbar-collapse" id="opciones">
             <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link" href="1inicio.html">Inicio</a>
+                <a class="nav-item nav-link active" href="{% url 'inicio' %}">Inicio</a>
 
-                <a class="nav-item nav-link active" href="5.3servtec.html">Serv. Tecnico</a>
+                <a class="nav-item nav-link" href="{% url 'servtec' %}">Serv. Tecnico</a>
 
-                <a class="nav-item nav-link" href="5.2seguridad.html">Seguridad</a>
+                <a class="nav-item nav-link" href="{% url 'seguridad' %}">Seguridad</a>
 
-                <a class="nav-item nav-link" href="5venta.html">Componentes</a>
+                <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
 
-                <a class="nav-item nav-link" href="lol4.html">Contacto</a>
+                <a class="nav-item nav-link" href="{% url 'lol4' %}">Contacto</a>
 
                 <div class="d-flex flex-row justify-content-around ">
-                    <a href="8login.html" class="btn btn-outline-danger">
+                    <a href="{% url 'login' %}" class="btn btn-outline-danger">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
                             class="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -70,7 +70,7 @@
     <a id="move-to-top" class="animate filling" href="#">
         <i class="fa fa-angle-up"></i>
     </a>
-    <script src="/js/gotop.js"></script>
+    </script><script src="{% static 'tool/js/gotop.js' %}"></script>
     <!--FIN BOTON SUBIR-->
     
     <div class="container">
@@ -86,10 +86,8 @@
         <div class="row">
             <div class="col-md separaciones_articulos">
                 <div class="card text-center">
-                    <img class="card-img-top marg_sup" ><center><svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-heart-half" viewBox="0 0 16 16">
-                        <path d="M8 2.748v11.047c3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                      </svg></center>
                     <div class="card-body">
+                        <img class="card-img-top" src="   " alt="Procesador">
                         <h4 class="card-title">DIAGNOSTICO</h4>
                         <p class="card-text">Teclado Gamer Cougar Core, Semi-Mecánico, QWERTY+Numérico, Iluminación
                             Multicolor, Color negro </p>
@@ -100,22 +98,21 @@
 
             <div class="col-md separaciones_articulos">
                 <div class="card text-center">
-                    <img class="card-img-top" ><i class="fab fa-windows"></i>
+                    <img class="card-img-top" src="{% static 'tool/img/ofertas/instal_win.png' %}" alt="Instalacion">
                     <div class="card-body">
-                        <h4 class="card-title">REINSTALACION DE SISTEMA / FORMATEO</h4>
-                        <p class="card-text">Si tu equipo presenta extrema lentitud, fallas en el arranque, problemas de
-                            Drivers, virus por ejemplo: ventanas que se abren, publicidad excesiva, programas no
-                            deseados, cambios en la pagina de inicio del navegador, archivos corruptos, archivos
-                            eliminados este es el servicio es el que necesitas </p>
+                        <h5 class="card-title">REINSTALACION DE SISTEMA / FORMATEO</h5>
+                        <p class="card-text">¿Problemas con tu pc?
+                            funciona lento, fallas en encendido, drivers desactualizados, virus, etc..
+                            este es el servicio que necesitas  </p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md separaciones_articulos">
                 <div class="card text-center">
-                    <img class="card-img-top" src="img/ofertas/3.jpg" alt="Teclado Gamer">
+                    <img class="card-img-top" src="{% static 'tool/img/ofertas/reinicio_e.jpg' %}" alt="Teclado Gamer">
                     <div class="card-body">
-                        <h4 class="card-title">MEJORA TU EQUIPO</h4>
+                        <h5 class="card-title">MEJORA TU EQUIPO</h5>
                         <p class="card-text">¿Formateas tu equipo y sigue lento? ¡Te lo mejoramos!
                         </p>
                     </div>
@@ -129,7 +126,7 @@
         <div class="row">
             <div class="col-md separaciones_articulos">
                 <div class="card text-center">
-                    <img class="card-img-top" src="img/ofertas/4,1.jpg" alt="Procesador">
+                    <img class="card-img-top" src="   " alt="mantencion-pc">
                     <div class="card-body">
                         <h4 class="card-title">MANTENCION NOTEBOOK</h4>
                         <p class="card-text">Con el tiempo la ventilación del ordenador acumulará polvo, provocando
@@ -140,7 +137,7 @@
 
             <div class="col-md separaciones_articulos">
                 <div class="card text-center">
-                    <img class="card-img-top" src="img/ofertas/5.jpg" alt="Procesador">
+                    <img class="card-img-top" src="   "alt="mantencion-note">
                     <div class="card-body">
                         <h4 class="card-title">MANTENCION PC ESCRITORIO</h4>
                         <p class="card-text">¿Notas una baja notable en el rendimiento de tus juegos y/o Sistema
@@ -151,10 +148,10 @@
 
             <div class="col-md separaciones_articulos">
                 <div class="card text-center">
-                    <img class="card-img-top" src="img/ofertas/6.jpg" alt="Procesador">
+                    <img class="card-img-top" src="{% static 'tool/img/ofertas/armado_pc.jpg' %}" alt="Armado_pc">
                     <div class="card-body">
-                        <h4 class="card-title">ARMADO PC</h4>
-                        <p class="card-text"> lol</p>
+                        <h5 class="card-title">SERVICIO ARMADO PC</h5>
+                        <p class="card-text"> Te recomendaremos las mejores alternativas en CPU, RAM, Disco duro, etc.. para que tu estación de trabajo o juego </p>
                     </div>
                 </div>
             </div>
@@ -171,13 +168,13 @@
                     <div class="py-0">
                         <h3 class="my-4 text-white"><span class="mx-2 font-italic text-warning">TOOLASH</span></h3>
                         <p class="footer-links font-weight-bold">
-                            <a class="text-white" href="1inicio.html">Inicio</a>
+                            <a class="text-white" href="{% url 'inicio' %}">Inicio</a>
                             |
-                            <a class="text-white" href="2nosotros.html">Nosotros</a>
+                            <a class="text-white" href="{% url 'nosotros' %}">Nosotros</a>
                             |
-                            <a class="text-white" href="3servicios.html">Servicios</a>
+                            <a class="text-white" href="{% url 'servicios' %}">Servicios</a>
                             |
-                            <a class="text-white" href="6tiendas.html">Tiendas</a>
+                            <a class="text-white" href="{% url 'tiendas' %}">Tiendas</a>
                         </p>
                         <p class="text-light py-4 mb-4">&copy;2012 Newmoss Solutions Inc.</p>
 
@@ -217,7 +214,7 @@
             </div>
         </div>
     </footer>
-    <script src="js/search.js"></script>
+    </script><script src="{% static 'tool/js/search.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
