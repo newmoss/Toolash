@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--BOOTSTRAP-->
-    <link rel="icon" type="image/jgp" href="img/social/icono.png" alt="Icono pestaña">
+    <script src="https://kit.fontawesome.com/0c8ac222e0.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/jgp" href="{% static 'tool/img/social/icono.png' %}" alt="Icono pestaña">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCW98/SFnGE8fJT3GXwE0ngsV7Zt27NXFoaoApmYm81liuXoPkF0JwJ8ERdknLPM0" crossorigin="anonymous">
 
     <!--CSS-->
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/tiendas.css">
-    <link rel="stylesheet" href="css/mapa.css">
-    <link rel="stylesheet" href="css/gotop.css">
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/estilos.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/tiendas.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/mapa.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/gotop.css' %}"> 
 
     <!-- fontawesome-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
@@ -37,25 +38,25 @@
         </button>
 
         <!--LOGO-->
-        <a class="navbar-brand" href="1inicio.html">
-            <img src="img/png/logo2.png" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
+        <a class="navbar-brand" href="{% url 'inicio' %}">
+            <img src="{% static 'tool/img/png/logo2.png' %}" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
         </a>
 
         <!--LINKS-->
         <div class="collapse navbar-collapse" id="opciones">
             <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link" href="1inicio.html">Inicio</a>
+                <a class="nav-item nav-link active" href="{% url 'inicio' %}">Inicio</a>
 
-                <a class="nav-item nav-link" href="5.3servtec.html">Serv. Tecnico</a>
+                <a class="nav-item nav-link" href="{% url 'servtec' %}">Serv. Tecnico</a>
 
-                <a class="nav-item nav-link" href="5.2seguridad.html">Seguridad</a>
+                <a class="nav-item nav-link" href="{% url 'seguridad' %}">Seguridad</a>
 
-                <a class="nav-item nav-link" href="5venta.html">Componentes</a>
+                <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
 
-                <a class="nav-item nav-link" href="lol4.html">Contacto</a>
+                <a class="nav-item nav-link" href="{% url 'lol4' %}">Contacto</a>
 
                 <div class="d-flex flex-row justify-content-around ">
-                    <a href="lol8.html" class="btn btn-outline-danger">
+                    <a href="{% url 'login' %}" class="btn btn-outline-danger">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
                             class="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -73,7 +74,7 @@
         <i class="fa fa-angle-up"></i>
     </a>
 
-    <script src="/js/gotop.js"></script>
+    <script src="{% static 'tool/js/gotop.js' %}"></script>
 
     <!--FIN BOTON SUBIR-->
     <!-- Tiendas -->
@@ -90,8 +91,7 @@
                     de play para poder ver todos los detalles sobre nosotros .</p>
             </div>
             <div class="container">
-                <div class="box-video-button" data-lightgallery="group"><a class="button-play" data-lightgallery="item"
-                        href="https://www.youtube.com/embed/G3Vaojl_7kE"><span class="icon fa-play"></span></a></div>
+                <div class="box-video-button" data-lightgallery="group"><a class="button-play" data-lightgallery="item"href="https://www.youtube.com/embed/G3Vaojl_7kE"><span class="icon fa-play"></span></a></div>
             </div>
             <iframe width="450" height="315" src="https://www.youtube.com/embed/G3Vaojl_7kE" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -150,7 +150,7 @@
                     <div class="box-images box-images-variant-3">
                         <div class="box-images-item"
                             data-parallax-scroll="{&quot;y&quot;: -20,   &quot;smoothness&quot;: 30 }"><img
-                                src="img/tienda/tienda1.jpg" alt="" width="450" height="200" />
+                                src="{% static 'tool/img/tienda/tienda1.jpg' %}" alt="" width="450" height="200" />
                         </div>
                     </div>
                     <br>
@@ -210,7 +210,7 @@
                     <div class="box-images box-images-variant-3">
                         <div class="box-images-item"
                             data-parallax-scroll="{&quot;y&quot;: -20,   &quot;smoothness&quot;: 30 }"><img
-                                src="img/tienda/tienda2.jpg" alt="" width="450" height="200" />
+                                src="{% static 'tool/img/tienda/tienda2.jpg' %}" alt="" width="450" height="200" />
                         </div>
                     </div>
                     <br>
@@ -232,13 +232,13 @@
                     <div class="py-0">
                         <h3 class="my-4 text-white"><span class="mx-2 font-italic text-warning">TOOLASH</span></h3>
                         <p class="footer-links font-weight-bold">
-                            <a class="text-white" href="1inicio.html">Inicio</a>
+                            <a class="text-white" href="{% url 'inicio' %}">Inicio</a>
                             |
-                            <a class="text-white" href="2nosotros.html">Nosotros</a>
+                            <a class="text-white" href="{% url 'nosotros' %}">Nosotros</a>
                             |
-                            <a class="text-white" href="3servicios.html">Servicios</a>
+                            <a class="text-white" href="{% url 'servicios' %}">Servicios</a>
                             |
-                            <a class="text-white" href="6tiendas.html">Tiendas</a>
+                            <a class="text-white" href="{% url 'tiendas' %}">Tiendas</a>
                         </p>
                         <p class="text-light py-4 mb-4">&copy;2012 Newmoss Solutions Inc.</p>
 

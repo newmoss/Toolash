@@ -25,8 +25,10 @@ def venta(request):
 def lol4(request):
     return render(request,'tool/lol4.html')
 
+
 def tiendas(request):
     return render(request,'tool/6tiendas.html')
+
 
 def registro(request):
     return render(request,'tool/7registro.html')
