@@ -41,15 +41,13 @@
         <!--LINKS-->
         <div class="collapse navbar-collapse" id="opciones">
             <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link active" href="{% url 'inicio' %}">Inicio</a>
+                <a class="nav-item nav-link" href="{% url 'inicio' %}">Inicio</a>
 
                 <a class="nav-item nav-link" href="{% url 'servtec' %}">Serv. Tecnico</a>
 
                 <a class="nav-item nav-link" href="{% url 'seguridad' %}">Seguridad</a>
 
                 <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
-
-                <a class="nav-item nav-link" href="{% url 'lol4' %}">Contacto</a>
 
                 <div class="d-flex flex-row justify-content-around ">
                     <a href="{% url 'login' %}" class="btn btn-outline-danger">
@@ -64,13 +62,12 @@
             </div>
         </div>
     </nav>
+
     <!--INICIO BOTON SUBIR-->
     <a id="move-to-top" class="animate filling" href="#">
         <i class="fa fa-angle-up"></i>
     </a>
-
-    </script><script src="{% static 'tool/js/gotop.js' %}"></script>
-
+    <script src="{% static 'tool/js/gotop.js' %}"></script>
     <!--FIN BOTON SUBIR-->
 
     <div class="containera marg">
@@ -145,6 +142,7 @@
             <button type="submit" class="btn btn-center">Registrar</button>
         </form>
     </div>
+    
     <!--FOOTER-->
     <footer style="background-color: #212529">
         <div class="container">
@@ -200,7 +198,7 @@
             </div>
         </div>
     </footer>
-    </script><script src="{% static 'tool/js/prueba.js' %}"></script>
+    <script src="{% static 'tool/js/prueba.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

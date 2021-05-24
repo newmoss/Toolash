@@ -38,15 +38,13 @@
 
         <div class="collapse navbar-collapse" id="opciones">
             <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link active" href="{% url 'inicio' %}">Inicio</a>
+                <a class="nav-item nav-link" href="{% url 'inicio' %}">Inicio</a>
 
                 <a class="nav-item nav-link" href="{% url 'servtec' %}">Serv. Tecnico</a>
 
                 <a class="nav-item nav-link" href="{% url 'seguridad' %}">Seguridad</a>
 
                 <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
-
-                <a class="nav-item nav-link" href="{% url 'lol4' %}">Contacto</a>
 
                 <div class="d-flex flex-row justify-content-around ">
                     <a href="{% url 'login' %}" class="btn btn-outline-danger">
@@ -60,15 +58,14 @@
                 </div>
             </div>
         </div>
-    </nav>
-    
+    </nav>  
     <br>
 
     <!--INICIO BOTON SUBIR-->
     <a id="move-to-top" class="animate filling" href="#">
         <i class="fa fa-angle-up"></i>
     </a>
-    </script><script src="{% static 'tool/js/gotop.js' %}"></script>
+    <script src="{% static 'tool/js/gotop.js' %}"></script>
     <!--FIN BOTON SUBIR-->
 
     <div class="container">
