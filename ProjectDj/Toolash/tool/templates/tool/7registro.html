@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <!--BOOTSTRAP-->
+    <link rel="icon" type="image/jgp" href="{% static 'tool/img/social/icono.png' %}" alt="Icono pestaña">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCW98/SFnGE8fJT3GXwE0ngsV7Zt27NXFoaoApmYm81liuXoPkF0JwJ8ERdknLPM0" crossorigin="anonymous">
+
+    <!--CSS-->
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/estilos.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/registrar.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/gotop.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+   
+    <!--GOTOP-->
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
+    <title>Registrar</title>
+</head>
+
+<body>
+
+    <!--MENU NAVBAR-->
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm ">
+        <button class="navbar-toggler navbar-toggler-right bot_bord" type="button" data-toggle="collapse"
+            data-target="#opciones" aria-controls="opciones" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--LOGO-->
+        <a class="navbar-brand" href="{% url 'inicio' %}">
+            <img src="{% static 'tool/img/png/logo2.png' %}" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
+        </a>
+
+        <!--LINKS-->
+        <div class="collapse navbar-collapse" id="opciones">
+            <div class="navbar-nav mr-auto ml-auto text-center">
+                <a class="nav-item nav-link" href="{% url 'inicio' %}">Inicio</a>
+
+                <a class="nav-item nav-link" href="{% url 'servtec' %}">Serv. Tecnico</a>
+
+                <a class="nav-item nav-link" href="{% url 'seguridad' %}">Seguridad</a>
+
+                <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
+
+                <div class="d-flex flex-row justify-content-around ">
+                    <a href="{% url 'login' %}" class="btn btn-outline-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg> Unirse
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--INICIO BOTON SUBIR-->
+    <a id="move-to-top" class="animate filling" href="#">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <script src="{% static 'tool/js/gotop.js' %}"></script>
+    <!--FIN BOTON SUBIR-->
+
+    <div class="containera marg">
+        <div class="header">
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                    class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    <path fill-rule="evenodd"
+                        d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                </svg> Crear cuenta
+            </h2>
+        </div>
+        <form id="form" method="POST" class="form" action="8login.html">
+            <div class="form-control">
+                <label>Nombres</label>
+                <input type="text" placeholder="Ingrese sus nombres" id="nombres" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Apellidos</label>
+                <input type="text" placeholder="Ingrese sus apellidos" id="apellidos" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Email</label>
+                <input type="email" placeholder="ejemplo@email.com" id="email" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Telefono</label>
+                <input type="text" placeholder="Ingrese su numero" id="numero" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Rut</label>
+                <input type="text" placeholder="con puntos y guion" id="rut" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Direccion</label>
+                <input type="text" placeholder="" id="direccion" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="password">Contraseña</label>
+                <input type="password" placeholder="Ingrese una contraseña" minlength="4" id="password" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="password2">Repetir Contraseña</label>
+                <input type="password" placeholder="Ingrese su contraseña nuevamente" id="password2" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-center">Registrar</button>
+        </form>
+    </div>
+    
+    <!--FOOTER-->
+    <footer style="background-color: #212529">
+        <div class="container">
+            <div class="row ">
+                <!--Links y copy-->
+                <div class="col-md-4 text-center text-md-left ">
+                    <div class="py-0">
+                        <h3 class="my-4 text-white"><span class="mx-2 font-italic text-warning">TOOLASH</span></h3>
+                        <p class="footer-links font-weight-bold">
+                            <a class="text-white" href="{% url 'inicio' %}">Inicio</a>
+                            |
+                            <a class="text-white" href="{% url 'nosotros' %}">Nosotros</a>
+                            |
+                            <a class="text-white" href="{% url 'servicios' %}">Servicios</a>
+                            |
+                            <a class="text-white" href="{% url 'tiendas' %}">Tiendas</a>
+                        </p>
+                        <p class="text-light py-4 mb-4">&copy;2012 Newmoss Solutions Inc.</p>
+
+                    </div>
+                </div>
+
+                <!--Redes sociales-->
+                <div class="col-md-4 text-white my-4 text-center text-md-left ">
+                    <div class="py-2 footer">
+                        <a href="https://www.facebook.com/toolash.imperio/"><i
+                                class="fab fa-facebook fa-4x text-primary mx-3"></i></a>
+
+                        <a href="https://www.instagram.com/_toolash_original_/"><i
+                                class="fab fa-instagram fa-4x text-danger mx-3"></i></a>
+                    </div>
+                </div>
+
+                <!--Info-->
+                <div class="col-md-4 text-white text-center text-md-left ">
+                    <div class="py-2 my-4">
+                        <div>
+                            <p class="text-white"> <i class="fa fa-map-marker mx-4"></i>
+                                Padre Mariano 356, Providencia, Metro Pedro de Valdivia</p>
+                        </div>
+
+                        <div>
+                            <p><i class="fa fa-phone  mx-4 "></i> +56 (2) 2 622 08 70</p>
+                        </div>
+
+                        <div>
+                            <p><i class="fa fa-envelope  mx-4"></i><a
+                                    href="mailto:support@eduonix.com">contacto@toolash.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'tool/js/prueba.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

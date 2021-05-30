@@ -9,10 +9,7 @@ class Carritopro(models.Model):
     idCarrito = models.IntegerField(primary_key=True)
     cantidad = models.IntegerField()
     subtotal = models.IntegerField()
-    lol = models.CharField(max_length=20)
 
-    def __str__(self):
-        return self.lol
 
 class Categoria(models.Model):
     idCategoria = models.IntegerField(primary_key=True, verbose_name='ID')
@@ -31,4 +28,3 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombreProducto
-

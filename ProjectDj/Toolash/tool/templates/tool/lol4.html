@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--BOOTSTRAP-->
+    <link rel="icon" type="image/jgp" href="img/social/icono.png" alt="Icono pestaña">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCW98/SFnGE8fJT3GXwE0ngsV7Zt27NXFoaoApmYm81liuXoPkF0JwJ8ERdknLPM0" crossorigin="anonymous">
+    <!--CSS-->
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/contacto.css">
+    <!-- Fontawesome-->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
+        integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
+        crossorigin="anonymous"></script>
+    <title>Contacto</title>
+
+</head>
+
+<body>
+
+    <!--MENU NAVBAR-->
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm sticky-top">
+        <button class="navbar-toggler navbar-toggler-right bot_bord" type="button" data-toggle="collapse"
+            data-target="#opciones" aria-controls="opciones" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--LOGO-->
+        <a class="navbar-brand" href="1inicio.html">
+            <img src="img/png/logo2.png" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
+        </a>
+
+        <!--LINKS-->
+        <div class="collapse navbar-collapse" id="opciones">
+            <div class="navbar-nav mr-auto ml-auto text-center">
+                <a class="nav-item nav-link" href="1inicio.html">Inicio</a>
+
+                <a class="nav-item nav-link" href="5.3servtec.html">Serv. Tecnico</a>
+
+                <a class="nav-item nav-link" href="5.2seguridad.html">Seguridad</a>
+
+                <a class="nav-item nav-link" href="5venta.html">Componentes</a>
+
+                <a class="nav-item nav-link active" href="lol4.html">Contacto</a>
+
+                <div class="d-flex flex-row justify-content-around ">
+                    <a href="8login.html" class="btn btn-outline-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg> Unirse
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--INICIO FORMULARIO-->
+    <div class="con-contacto">
+        <div class="contacto">
+            <h3>
+                <center><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                        class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
+                    </svg> Contactanos</center>
+            </h3>
+            <form id="mi-formulario" method="POST" action="1inicio.html">
+                <p>
+                    <label>Nombres</label>
+                    <input type="text" name="nombres" id="nombres">
+                </p>
+                <p>
+                    <label>Apellidos</label>
+                    <input type="text" name="apellidos" id="apellidos">
+                </p>
+                <p>
+                    <label>Direccion E-mail</label>
+                    <input type="email" name="email" id="email" placeholder="ejemplo@email.cl">
+                </p>
+                <p>
+                    <label>Asunto</label>
+                    <input type="text" name="asunto" id="asunto">
+                </p>
+                <p class="block">
+                    <label>Mensaje</label>
+                    <textarea name="mensaje" id="mensaje" rows="3"></textarea>
+                </p>
+                <div>
+                    <center><button type="reset" class="btn btn-center btn-danger">Limpiar</button></center>
+                </div>
+                <div>
+                    <center><button type="submit" id="guardar" class="btn btn-center">Enviar</button></center>
+                </div>
+
+            </form>
+        </div>
+        <div class="info-contacto">
+            <h4>Mas Informacion</h4>
+            <ul>
+                <li><i></i> Padre Mariano 356, Providencia, Metro Pedro de Valdivia</li>
+                <li><i></i> +56 (2) 2 622 08 70</li>
+                <li><i></i> contacto@toolash.com</li>
+                <br>
+                <li><i></i> Solicita más información de nuestras soluciones por medio de un ejecutivo comercial que
+                    podrá orientarte mejor con los servicios adecuados para tu necesidad.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!--FINAL FORMULARIO-->
+
+    <!--FOOTER-->
+    <footer style="background-color: #212529">
+        <div class="container">
+            <div class="row ">
+                <!--Links y copy-->
+                <div class="col-md-4 text-center text-md-left ">
+                    <div class="py-0">
+                        <h3 class="my-4 text-white"><span class="mx-2 font-italic text-warning">TOOLASH</span></h3>
+                        <p class="footer-links font-weight-bold">
+                            <a class="text-white" href="1inicio.html">Inicio</a>
+                            |
+                            <a class="text-white" href="2nosotros.html">Nosotros</a>
+                            |
+                            <a class="text-white" href="3servicios.html">Servicios</a>
+                            |
+                            <a class="text-white" href="6tiendas.html">Tiendas</a>
+                        </p>
+                        <p class="text-light py-4 mb-4">&copy;2012 Newmoss Solutions Inc.</p>
+
+                    </div>
+                </div>
+
+                <!--Redes sociales-->
+                <div class="col-md-4 text-white my-4 text-center text-md-left ">
+                    <div class="py-2 footer">
+                        <a href="https://www.facebook.com/toolash.imperio/"><i
+                                class="fab fa-facebook fa-4x text-primary mx-3"></i></a>
+
+                        <a href="https://www.instagram.com/_toolash_original_/"><i
+                                class="fab fa-instagram fa-4x text-danger mx-3"></i></a>
+                    </div>
+                </div>
+
+                <!--Info-->
+                <div class="col-md-4 text-white text-center text-md-left ">
+                    <div class="py-2 my-4">
+                        <div>
+                            <p class="text-white"> <i class="fa fa-map-marker mx-4"></i>
+                                Padre Mariano 356, Providencia, Metro Pedro de Valdivia</p>
+                        </div>
+
+                        <div>
+                            <p><i class="fa fa-phone  mx-4 "></i> +56 (2) 2 622 08 70</p>
+                        </div>
+
+                        <div>
+                            <p><i class="fa fa-envelope  mx-4"></i><a
+                                    href="mailto:support@eduonix.com">contacto@toolash.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!--Validacion con JQUERY-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="/js/contact.js"></script>
+
+
+
+</body>
+
+</html>
