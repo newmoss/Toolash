@@ -37,7 +37,7 @@ def registro(request):
     return render(request,'tool/7registro.html')
 
 def registrar(request):
-    nombre = request.POST['nombres']
+    nombres = request.POST['nombres']
     apellido = request.POST['apellidos']
     email = request.POST['email']
     tel = request.POST['numero']
@@ -45,7 +45,7 @@ def registrar(request):
     dir= request.POST['direccion']
     passw = request.POST['password']
 
-    User.objects.create(nombres = nombre,apellidos = apellido,correo = email, telefono = tel, password = passw )
+    User.objects.create(nombres = nombres,apellidos = apellido,correo = email, telefono = tel, password = passw )
     Tipodocumento.objects.create(numDoc = rut)
     Direccion.objects.create(descDireccion = dir)
 
