@@ -39,8 +39,8 @@ class Contacto(models.Model):
     nombres = models.CharField(max_length=30)
     apellidos = models.CharField(max_length=30)
     correo = models.CharField(max_length=30)
-    asunto = CharField(max_length=20)
-    mensaje = CharField(max_length=300)
+    asunto = models.CharField(max_length=20)
+    mensaje = models.CharField(max_length=300)
 
 
 
@@ -99,7 +99,7 @@ class Producto(models.Model):
     nombreProducto = models.CharField(max_length=50, blank=False)
     precio = models.IntegerField(blank=False)
     stock = models.IntegerField()
-    imagen= models.ImageField()
+    imagen= models.ImageField(upload_to="producto",null= True)
     categoria = models.ForeignKey(Categoria,on_delete=models.CASCADE,blank=False)
     carritopro = models.ForeignKey(Carritopro,on_delete=models.CASCADE,blank=False)
 

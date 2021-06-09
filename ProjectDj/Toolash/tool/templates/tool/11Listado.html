@@ -42,7 +42,7 @@
         <!--LINKS-->
         <div class="collapse navbar-collapse" id="opciones">
             <div class="navbar-nav mr-auto ml-auto text-center">
-                <a class="nav-item nav-link" href="{% url 'inicio' %}">>Inicio</a>
+                <a class="nav-item nav-link" href="{% url 'inicio' %}">Inicio</a>
 
                 <a class="nav-item nav-link" href="{% url 'servtec' %}">Serv. Tecnico</a>
 
@@ -73,10 +73,18 @@
     <!--FIN BOTON SUBIR-->
     <div class="container marg_sup marg_inf">
         <div class="row">
+
+            {% if messages %}
+            <div>
+                {% for i in messages %}
+                    <p style="color:darkseagreen;">{{ i }} </style></p>
+                    {% endfor %}
+            </div>
+            {% endif %}
             <h1>Listado usuarios</h1>
         </div>
         <div class="row marg_inf">
-            <table>
+            <table class="table table-striped">
                 <tr>
                     <td>ID</td>
                     <td>Nombres</td>
@@ -84,6 +92,7 @@
                     <td>Email</td>
                     <td>Telefono</td>
                     <td>Pass</td>
+                    <td>Opciones</td>
                 </tr>
                 {% for m in usuarios %}
                 <tr>
@@ -93,6 +102,8 @@
                     <td>{{ m.correo }}</td>
                     <td>{{ m.telefono }}</td>
                     <td>{{ m.password }}</td>
+                    <td><a class="btn btn-center btn-outline-danger active" href="{% url 'delete' m.idUser %}" >Eliminar</a> <a class="btn btn-center btn-outline-primary active" href="{% url 'modificado' m.idUser %}" >Modificar</a> </td>
+
                 </tr>
                 {% endfor %}
             </table>
@@ -102,7 +113,7 @@
             <h1>Listado Productos</h1>
         </div>
         <div class="row marg_inf">
-            <table>
+            <table class="table table-striped">
                 <tr>
                     <td>Codigo</td>
                     <td>Nombre </td>
@@ -110,6 +121,7 @@
                     <td>Stock</td>
                     <td>Imagen</td>
                     <td>Categoria</td>
+                    <td>Opciones</td>
                 </tr>
                 {% for m in productos %}
                 <tr>
@@ -119,6 +131,7 @@
                     <td>{{ m.stock }}</td>
                     <td>{{ m.imagen }}</td>
                     <td>{{ m.categoria }}</td>
+                    <td><a class="btn btn-center btn-outline-danger active" href="{% url 'delete' m.idUser %}" >Eliminar</a> <a class="btn btn-center btn-outline-primary active" href="{% url 'modificado' m.idUser %}" >Modificar</a> </td>
                 </tr>
                 {% endfor %}
             </table>

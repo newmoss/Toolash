@@ -1,4 +1,3 @@
-from typing import ContextManager
 from django.shortcuts import redirect, render
 from .models import User,Tipodocumento,Direccion,Producto,Contacto
 from django.contrib import messages
@@ -36,6 +35,21 @@ def tiendas(request):
 def registro(request):
     return render(request,'tool/7registro.html')
 
+def login(request):
+    return render(request,'tool/8login.html')
+
+def emailpass(request):
+    return render(request,'tool/9emailpass.html')
+
+def password(request):
+    return render(request,'tool/10password.html')
+
+def listado(request):
+    user = User.objects.all() #Generando select * from tabla user
+    producto = Producto.objects.all()
+    contexto = {"usuarios":user,"productos":producto}
+    return render(request,'tool/11Listado.html',contexto)
+#-------------------------------------------------------------------------------#
 def registrar(request):
     nombre = request.POST['nombres']
     apellido = request.POST['apellidos']
@@ -52,21 +66,6 @@ def registrar(request):
     messages.success(request,'Usuario registrado')
     return redirect('login')
 
-def login(request):
-    return render(request,'tool/8login.html')
-
-def emailpass(request):
-    return render(request,'tool/9emailpass.html')
-
-def password(request):
-    return render(request,'tool/10password.html')
-
-def listado(request):
-    user = User.objects.all() #Generando select * from tabla user
-    producto = Producto.objects.all()
-    contexto = {"usuarios":user,"productos":producto}
-    return render(request,'tool/11Listado.html',contexto)
-
 def contacto(request):
     nombre = request.POST['nombres']
     apellido = request.POST['apellidos']
@@ -78,3 +77,19 @@ def contacto(request):
 
     messages.success(request,'Mensaje enviado')
     return redirect('venta')
+
+def eliminar(request, id):
+    delet = User.objects.get(idUser = id)
+    delet.delete()
+    messages.success(request,'Eliminado exitosamente')
+
+    return redirect('listado')
+
+def modificar(request,id):
+    us = User.objects.get(idUser = id)
+
+    contexto = {
+        "user" : us
+    }
+    return render(request,'tool/12modificar.html',contexto)
+    
