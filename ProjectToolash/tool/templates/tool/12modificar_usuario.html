@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--BOOTSTRAP-->
+    <link rel="icon" type="image/jgp" href="{% static 'tool/img/social/icono.png' %}" alt="Icono pestaña">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCW98/SFnGE8fJT3GXwE0ngsV7Zt27NXFoaoApmYm81liuXoPkF0JwJ8ERdknLPM0" crossorigin="anonymous">
+
+    <!--CSS-->
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/estilos.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/registrar.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/gotop.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+   
+    <!--GOTOP-->
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
+    <title>Registrar</title>
+</head>
+
+<body>
+
+    <!--MENU NAVBAR-->
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm ">
+        <button class="navbar-toggler navbar-toggler-right bot_bord" type="button" data-toggle="collapse"
+            data-target="#opciones" aria-controls="opciones" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--LOGO-->
+        <a class="navbar-brand" href="{% url 'inicio' %}">
+            <img src="{% static 'tool/img/png/logo2.png' %}" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
+        </a>
+
+        <!--LINKS-->
+        <div class="collapse navbar-collapse" id="opciones">
+            <div class="navbar-nav mr-auto ml-auto text-center">
+                <a class="nav-item nav-link" href="{% url 'inicio' %}">Inicio</a>
+
+                <a class="nav-item nav-link" href="{% url 'servtec' %}">Serv. Tecnico</a>
+
+                <a class="nav-item nav-link" href="{% url 'seguridad' %}">Seguridad</a>
+
+                <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
+
+                <div class="d-flex flex-row justify-content-around ">
+                    <a href="{% url 'login' %}" class="btn btn-outline-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg> Unirse
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--INICIO BOTON SUBIR-->
+    <a id="move-to-top" class="animate filling" href="#">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <script src="{% static 'tool/js/gotop.js' %}"></script>
+    <!--FIN BOTON SUBIR-->
+
+    <div class="containera marg">
+        <div class="header">
+            <h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                    class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    <path fill-rule="evenodd"
+                        d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                </svg> Crear cuenta
+            </h2>
+        </div>
+        <form id="form" method="POST" class="form" action="{% url 'modificar_usuario' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-control">
+                <label>ID</label>
+                <input type="text"  value="{{ user.idUser }}" id="id" name="id" required readonly/>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Nombres</label>
+                <input type="text"  value="{{ user.nombres }}" id="nombres" name="nombres" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Apellidos</label>
+                <input type="text"  value="{{ user.apellidos }}" id="apellidos" name="apellidos" />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Email</label>
+                <input type="email" value="{{ user.correo }}" id="email" name="email"/>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Telefono</label>
+                <input type="text"  value="{{ user.telefono }}" id="numero" name="numero"/>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="password">Contraseña</label>
+                <input type="password" value="{{ user.password }}" id="password" name="password"/>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-center">Modificar</button>
+        </form>
+    </div>
+</body>
+</html>

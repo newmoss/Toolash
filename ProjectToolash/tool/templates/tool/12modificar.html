@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--BOOTSTRAP-->
+    <link rel="icon" type="image/jgp" href="{% static 'tool/img/social/icono.png' %}" alt="Icono pestaña">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCW98/SFnGE8fJT3GXwE0ngsV7Zt27NXFoaoApmYm81liuXoPkF0JwJ8ERdknLPM0" crossorigin="anonymous">
+
+    <!--CSS-->
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/estilos.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/contacto.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/gotop.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+
+    <!--GOTOP-->
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+
+    <title>Registrar</title>
+</head>
+
+<body>
+
+    <!--MENU NAVBAR-->
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm ">
+        <button class="navbar-toggler navbar-toggler-right bot_bord" type="button" data-toggle="collapse"
+            data-target="#opciones" aria-controls="opciones" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!--LOGO-->
+        <a class="navbar-brand" href="{% url 'inicio' %}">
+            <img src="{% static 'tool/img/png/logo2.png' %}" width="200" height="100" class="d-inline-block align-top"
+                alt="Logo toolash">
+        </a>
+
+        <!--LINKS-->
+        <div class="collapse navbar-collapse" id="opciones">
+            <div class="navbar-nav mr-auto ml-auto text-center">
+                <a class="nav-item nav-link" href="{% url 'inicio' %}">Inicio</a>
+
+                <a class="nav-item nav-link" href="{% url 'servtec' %}">Serv. Tecnico</a>
+
+                <a class="nav-item nav-link" href="{% url 'seguridad' %}">Seguridad</a>
+
+                <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
+
+                <div class="d-flex flex-row justify-content-around ">
+                    <a href="{% url 'login' %}" class="btn btn-outline-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg> Unirse
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--INICIO BOTON SUBIR-->
+    <a id="move-to-top" class="animate filling" href="#">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <script src="{% static 'tool/js/gotop.js' %}"></script>
+    <!--FIN BOTON SUBIR-->
+
+    <div class="container marg_form">
+        <div class="row">
+            <!--INICIO FORMULARIO-->
+            <div class="con-contacto">
+                <div class="contacto">
+                    <h3>
+                        <center><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
+                            </svg> Contactanos</center>
+                    </h3>
+                    <form id="mi-formulario" method="POST" action="{% url 'modificar_contacto' %}"enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <p>
+                            <label>ID</label>
+                            <input type="text" value="{{ contacto.idConct }}"name="id" id="id"required readonly>
+                        </p>
+                        <p>
+                            <label>Nombres</label>
+                            <input type="text" value="{{ contacto.nombres }}"name="nombres" id="nombres">
+                        </p>
+                        <p>
+                            <label>Apellidos</label>
+                            <input type="text" value="{{ contacto.apellidos }}" name="apellidos" id="apellidos">
+                        </p>
+                        <p>
+                            <label>E-mail</label>
+                            <input type="email" value="{{ contacto.correo }}" name="email" id="email">
+                        </p>
+                        <p>
+                            <label>Asunto</label>
+                            <input type="text" value="{{ contacto.asunto }}" name="asunto" id="asunto">
+                        </p>
+                        <p class="block">
+                            <label>Mensaje</label>
+                            <textarea name="mensaje" value="{{ contacto.mensaje }}" id="mensaje" rows="3"></textarea>
+                        </p>
+                        <div>
+                            <center><button type="reset" class="btn btn-center btn-danger marg_form">Limpiar</button>
+                            </center>
+                        </div>
+                        <div>
+                            <center><button type="submit" id="guardar" class="btn btn-center marg_form">Enviar</button>
+                            </center>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="info-contacto">
+                    <h4>Mas Informacion</h4>
+                    <ul>
+                        <li><i></i> Padre Mariano 356, Providencia, Metro Pedro de Valdivia</li>
+                        <li><i></i> +56 (2) 2 622 08 70</li>
+                        <li><i></i> contacto@toolash.com</li>
+                        <br>
+                        <li><i></i> Solicita más información de nuestras soluciones por medio de un ejecutivo comercial
+                            que podrá orientarte mejor con los servicios adecuados para tu necesidad.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--FINAL FORMULARIO-->
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+
+/*
+body{
+    background: rgba(255, 255, 255, 0.486);
+}
+
+
+/*---------PRODUCTOS-----------*/
+
+.wrap{
+	width:78%;
+	margin:0 auto;
+	padding:0 1%;
+	background:#FFF;
+}
+
+
+.back-links p a:hover,.back-links p a:active{
+	color:#70389C;
+}
+
+
+.cont-desc:first-child { margin-left: 0; } 
+.desc{
+	display: block;
+	float:left;
+	margin: 0% 0 0% 2.6%;
+}
+
+
+.images_3_of_2 {
+	width: 44.2%;
+	float:left;
+	text-align:center;
+}
+
+
+.span_3_of_2{
+	width: 53.2%;
+}
+
+
+.span_3_of_1{
+	width: 25.2%;
+	padding:1.5%;
+}
+
+
+.images_3_of_2  img {
+	max-width:100%;
+}
+
+
+.span_3_of_2  h2 {
+	font-family: 'Monda', sans-serif;
+	font-size:1.1em;
+	color: rgb(0, 0, 0);
+	font-weight : normal;
+	margin-top: 0px;
+	text-transform:uppercase;
+}
+
+
+.span_3_of_2  p{
+	font-size:0.8125em;
+	padding:0.3em 0;
+	color:#969696;
+	line-height: 1.6em;
+	font-family : verdana, arial, helvetica, helve, sans-serif; 	
+}
+
+
+.price p span{
+	font-size:1.5em;
+	font-family: 'Monda', sans-serif;
+	color: rgb(253, 0, 0);
+}
+
+
+.available{
+	padding:10px 0;
+	border-top:1px solid #E0E0E0;
+}
+
+
+.available p{
+	font-size:0.9em;
+	color:#333;
+	font-weight:bold;
+	padding-bottom:10px;
+}
+
+
+.available li{
+	display:inline;
+	font-size:0.8125em;
+	padding:1.5% 2%;
+	color:#353535;
+}
+
+
+.share p{
+	padding-top:10px;
+	font-size:0.9em;
+	color:#333;
+	font-weight:bold;
+}
+
+
+.share li{
+	display:inline-block;
+	margin:5px 6px;
+}
+
+
+.add-cart{
+	padding-top:15px;
+}
+
+
+.rating{
+	float:left;
+}
+
+
+.rating p{
+	padding-top:10px;
+	font-size:0.9em;
+	color:#333; 
+    font-weight:bold;
+}
+
+
+.rating p span{
+	font-size:0.8125em;
+	color: #666;
+	font-weight:normal;
+}
+
+
+.rating p img{
+	vertical-align: top;
+	padding-left: 5px;
+}
+
+
+.product-desc,.product-tags{
+	clear:both;
+	padding-top:20px;
+}
+
+
+.product-desc h2{
+	height: 30px;
+	background:cadetblue;
+	border-radius: 5px;
+	font-family: 'Monda', sans-serif;
+	font-size:1.2em;
+	color:#FFF;
+	text-align: center;
+    padding-top: 3px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.479);
+    
+}
+
+.espaciado_pantalla{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+
+
+.product-desc p{
+    margin: left;
+    display: block;
+   
+}
+.product-desc p{
+	font-size: 0.9em;
+	padding: 0.3em 0;
+	color: black;
+	line-height: 1.6em;
+	font-family: verdana, arial, helvetica, helve, sans-serif;
+}
+
+
+.span_3_of_2 .button{
+	float: left;
+	margin-top:1%;
+	margin-left: 9%;
+	line-height:2em;
+}
+.span_3_of_2 .button a{
+	text-decoration: none;
+	padding:12px 20px;
+	font-size:1em;
+	font-weight:bold;
+	font-family: Arial, "Helvetica Neue", "Helvetica", Tahoma, Verdana, sans-serif;
+	border: 1px solid rgba(0,0,0,0.1);
+  	box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    background        : #3f4040;       
+    color             : #fff;
+    text-shadow       : 0 1px 0 rgba(0, 0, 0, 0.4); 
+    -webkit-box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset, 0 2px 2px -1px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 1px rgba(255,255,255,0.2) inset, 0 2px 2px -1px rgba(0,0,0,0.3);
+	box-shadow: 0 1px rgba(255, 255, 255, 0.2) inset, 0 2px 2px -1px rgba(0, 0, 0, 0.3);
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.span_3_of_2 .button a:hover{
+	border: 1px solid #303030;
+    background: #525252; 
+    text-decoration:none;
+}
+
+.rallita{
+    text-decoration: line-through;
+    
+}
+
+.redesCom{
+    font-size: 20px;
+    border: none;
+    background: black;
+    color: white;
+    border-radius: 20%;
+}
+
+@media (min-width: 350px) {
+	.product-desc p{
+		margin: left;
+		display: block;
+	   
+	}
+}
