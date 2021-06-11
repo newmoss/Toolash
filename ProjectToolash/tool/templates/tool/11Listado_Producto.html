@@ -104,7 +104,7 @@
                         <img src="{{ x.imagen.url }}" style="width: 100%;max-width: 150px;" alt="">
                     </td>
                     <td>{{ x.categoria }}</td>
-                    <td><a class="btn btn-center btn-outline-danger active" href="{% url 'deletepr' x.codigo %}" >Eliminar</a>
+                    <td><a class="btn btn-center btn-outline-danger active" href="{% url 'deletepr' x.codigo %}" >Eliminar</a> <a class="btn btn-center btn-outline-primary active" href="{% url 'modificar_pro' x.codigo %}" >Modificar</a> </td>
                 </tr>
                 {% endfor %}
             </table>

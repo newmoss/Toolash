@@ -21,8 +21,10 @@ def seguridad(request):
 def producto(request):
     return render(request,'tool/5.1producto.html')
 
-def venta(request):
-    return render(request,'tool/5venta.html')
+def venta(request):    
+    num_produ=Producto.objects.all()
+    context={'num_prod':num_produ}
+    return render(request,'tool/5venta.html',context)
 
 def lol4(request):
     return render(request,'tool/lol4.html')
@@ -74,6 +76,12 @@ def modificar_usu(request,id):
     user = Usuario.objects.get(idUser = id) #Generando select * from tabla user
     contexto = {"user":user}
     return render(request,'tool/12modificar_usuario.html',contexto)
+
+def modificar_pro(request,id):
+    pro = Producto.objects.get(codigo = id) #Generando select * from tabla user
+    contexto = {"producto":pro}
+    return render(request,'tool/12modificar_producto.html',contexto)
+
 
 
 #-------------------------------------------------------------------------------#
@@ -167,3 +175,25 @@ def modificar_usuario(request):
     messages.success(request, 'Usuario Modificado')
     return redirect('listadous')
 
+def modificar_producto(request):
+    ide = request.POST['id']
+    nombre = request.POST['nombreProducto']
+    precio = request.POST['precio']
+    stock = request.POST['stock']
+
+    pro = Producto.objects.get(codigo = ide)#el registro original
+    #comienzo a reemplazar los valores en ese registro original
+    pro.codigo = ide
+    pro.nombreProducto = nombre
+    pro.precio = precio
+    pro.stock = stock
+
+    pro.save()
+    messages.success(request, 'Producto Modificado')
+    return redirect('listadopr')
+
+def prod(request):
+    num_produ=Producto.objects.all()
+    
+    return render(request,'venta',context={'num_prod':num_produ},
+    )
