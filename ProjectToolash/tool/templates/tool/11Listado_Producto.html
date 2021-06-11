@@ -16,6 +16,7 @@
     <!--CSS-->
     <link rel="stylesheet" href="{% static 'tool/css/estilos.css' %}">
     <link rel="stylesheet" href="{% static 'tool/css/registrar.css' %}">
+    <link rel="stylesheet" href="{% static 'tool/css/ventacomp.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
     <link rel="stylesheet" href="{% static 'tool/css/gotop.css' %}">
     <!--GOTOP-->
@@ -71,14 +72,59 @@
     <script src="{% static 'tool/js/gotop.js' %}"></script>
 
     <!--FIN BOTON SUBIR-->
+
+    <!--Form de buscar-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 search">
+                <form id="form" method="get" class="form d-flex">
+                    <div id="custom-search-input" class="form-control">
+                        <input type="text" id="search" placeholder="Buscar..." minlength="2" id="search" name="search"
+                            requeride />
+                        <span class="input-group-list">
+                            <small>Error message</small>
+                            <i class="icon icon-search"></i>
+
+                        </span>
+                    </div>
+                    <button type="submit" class="btn btn-center">Buscar</button>
+
+                </form>
+            </div>
+        </div>
+        <!--Respuesta de busqueda-->
+        <div class="row marg_inf">
+            <table class="table table-striped">
+                {% for x in producto %}
+                <tr>
+                    <td>{{ x.codigo }}</td>
+                    <td>{{ x.nombreProducto }}</td>
+                    <td>{{ x.precio }}</td>
+                    <td>{{ x.stock }}</td>
+                    <td>
+                        <img src="{{ x.imagen.url }}" style="width: 100%;max-width: 150px;" alt="">
+                    </td>
+                    <td>{{ x.categoria }}</td>
+                    <td><a class="btn btn-center btn-outline-danger active marg"
+                            href="{% url 'deletepr' x.codigo %}">Eliminar</a> <a
+                            class="btn btn-center btn-outline-primary active"
+                            href="{% url 'modificar_pro' x.codigo %}">Modificar</a> </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <!--ALL * TABLE-->
     <div class="container marg_sup marg_inf">
+
         <div class="row">
 
             {% if messages %}
             <div>
                 {% for i in messages %}
-                    <p style="color:darkseagreen;">{{ i }} </style></p>
-                    {% endfor %}
+                <p style="color:darkseagreen;">{{ i }} </style>
+                </p>
+                {% endfor %}
             </div>
             {% endif %}
             <h1>Listado Productos</h1>
@@ -104,12 +150,15 @@
                         <img src="{{ x.imagen.url }}" style="width: 100%;max-width: 150px;" alt="">
                     </td>
                     <td>{{ x.categoria }}</td>
-                    <td><a class="btn btn-center btn-outline-danger active" href="{% url 'deletepr' x.codigo %}" >Eliminar</a> <a class="btn btn-center btn-outline-primary active" href="{% url 'modificar_pro' x.codigo %}" >Modificar</a> </td>
+                    <td><a class="btn btn-center btn-outline-danger active marg"
+                            href="{% url 'deletepr' x.codigo %}">Eliminar</a> <a
+                            class="btn btn-center btn-outline-primary active"
+                            href="{% url 'modificar_pro' x.codigo %}">Modificar</a> </td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
-        
+
     </div>
     <!--FOOTER-->
     <footer style="background-color: #212529">

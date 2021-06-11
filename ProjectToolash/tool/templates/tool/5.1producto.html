@@ -68,17 +68,18 @@
     <script src="{% static 'tool/js/gotop.js' %}"></script>
     <!--FIN BOTON SUBIR-->
 
-    <div class="container">
+    <div class="container marg_sup">
         <div class="row">
+ 
             <div class="section group">
                 <div class="cont-desc span_1_of_2">
                     <div class="grid images_3_of_2">
-                        <img src="{% static 'tool/img/ofertas/3.jpg' %}"  />
+                        <img src="{{ productos.imagen.url }}"  />
                     </div>
                     <div class="desc span_3_of_2">
-                        <h2>Teclado Gamer Logitech G Pro RGB, Mecánico, Switch GX Blue, Alámbrico</h2>
+                        <h2>{{ productos.nombreProducto }}</h2>
                         <div class="price">
-                            <p>Precio: <span>$67.500 / </span><span class="rallita" style="font-size:85%">$89.990</span>
+                            <p>Precio: <span>${{ productos.precio }}  / </span><span class="rallita" style="font-size:85%">$89.990</span>
                             </p>
                         </div>
                         <div class="available">
@@ -106,29 +107,6 @@
                         <div class="add-cart">
                             <div class="button marg_inf"><span><a href="#">Comprar</a></span></div>
 
-                        </div>
-                    </div>
-                    <div class="product-desc">
-                        <h2>Detalles del Producto</h2>
-                        <div class="detalle marg">
-                            <h1 style="font-size:25px">Tecnología Mecánica Avanzada</h1>
-                            <p>El interruptor mecánico Romer-G™ está pensado para un desempeño profesional, una gran
-                                capacidad
-                                de respuesta y larga duración. La actuación de carrera corta a 1,5 mm es un 25% más
-                                rápida que
-                                la de los interruptores mecánicos estándar de productos de la competencia. Con una
-                                combinación
-                                perfecta de rapidez, precisión y discreción, Romer-G es el superagente secreto de los
-                                interruptores de teclado para juegos. La historia de Romer-G</p>
-                            <h1 style="font-size:25px">Diseño Compacto Y Duradero</h2>
-                                <p class="marg_inf">Diseño compacto sin teclado numérico que libera espacio en la mesa
-                                    de torneo para
-                                    movimientos
-                                    del mouse de baja sensibilidad, y un cable extraíble para facilitar el transporte al
-                                    siguiente torneo. La durabilidad se aplicó a cada componente y se reforzó con una
-                                    placa de
-                                    acero que además aporta la estabilidad y rigidez tan importantes durante el juego.
-                                </p>
                         </div>
                     </div>
                 </div>

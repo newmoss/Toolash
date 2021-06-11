@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--BOOTSTRAP-->
     <link rel="icon" type="image/jgp" href="{% static 'tool/img/social/icono.png' %}" alt="Icono pestaña">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"integrity="sha384-MCW98/SFnGE8fJT3GXwE0ngsV7Zt27NXFoaoApmYm81liuXoPkF0JwJ8ERdknLPM0" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCW98/SFnGE8fJT3GXwE0ngsV7Zt27NXFoaoApmYm81liuXoPkF0JwJ8ERdknLPM0" crossorigin="anonymous">
 
     <!--CSS-->
-    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/estilos.css' %}">
-    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/ventacomp.css' %}">
-    <link type="text/css" rel="stylesheet" href="{% static 'tool/css/gotop.css' %}">
+    <link rel="stylesheet" href="{% static 'tool/css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'tool/css/ventacomp.css' %}">
+    <link rel="stylesheet" href="{% static 'tool/css/gotop.css' %}">
 
     <!-- fontawesome-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
         integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
         crossorigin="anonymous"></script>
 
-    <title>Servicio Técnico</title>
+    <title>Venta componentes</title>
 </head>
 
 <body>
@@ -34,7 +37,8 @@
 
         <!--LOGO-->
         <a class="navbar-brand" href="{% url 'inicio' %}">
-            <img src="{% static 'tool/img/png/logo2.png' %}" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
+            <img src="{% static 'tool/img/png/logo2.png' %}" width="200" height="100" class="d-inline-block align-top"
+                alt="Logo toolash">
         </a>
 
         <!--LINKS-->
@@ -42,11 +46,11 @@
             <div class="navbar-nav mr-auto ml-auto text-center">
                 <a class="nav-item nav-link" href="{% url 'inicio' %}">Inicio</a>
 
-                <a class="nav-item nav-link active" href="{% url 'servtec' %}">Serv. Tecnico</a>
+                <a class="nav-item nav-link" href="{% url 'servtec' %}">Serv. Tecnico</a>
 
                 <a class="nav-item nav-link" href="{% url 'seguridad' %}">Seguridad</a>
 
-                <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
+                <a class="nav-item nav-link active" href="{% url 'venta' %}">Componentes</a>
 
                 <div class="d-flex flex-row justify-content-around ">
                     <a href="{% url 'login' %}" class="btn btn-outline-danger">
@@ -68,92 +72,57 @@
     </a>
     <script src="{% static 'tool/js/gotop.js' %}"></script>
     <!--FIN BOTON SUBIR-->
-    
+
     <div class="container">
-        <div class="container-fluid">
-            <form id="form" method="POST" class="form d-flex" action="">
-                <div class="form-control">
-                    <input type="search" id="search" placeholder="Buscar" minlength="2" requeride />
-                    <small>Error message</small>
-                </div>
-                <button type="submit" class="btn btn-center">Buscar</button>
-            </form>
-        </div>
         <div class="row">
-            <div class="col-md separaciones_articulos">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img class="card-img-top" src="   " alt="Procesador">
-                        <h4 class="card-title">DIAGNOSTICO</h4>
-                        <p class="card-text">Teclado Gamer Cougar Core, Semi-Mecánico, QWERTY+Numérico, Iluminación
-                            Multicolor, Color negro </p>
-
+            <div class="col-md-12 search">
+                <form id="form" method="get" class="form d-flex" >
+                    <div id="custom-search-input" class="form-control">
+                        <input type="text" id="search" placeholder="Buscar..." minlength="2" id="search" name="search"requeride />
+                        <span class="input-group-list">
+                            <small>Error message</small>
+                            <i class="icon icon-search"></i> 
+                            
+                        </span>
                     </div>
-                </div>
-            </div>
+                        <button type="submit" class="btn btn-center">Buscar</button>
 
-            <div class="col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'tool/img/ofertas/instal_win.png' %}" alt="Instalacion">
-                    <div class="card-body">
-                        <h5 class="card-title">REINSTALACION DE SISTEMA / FORMATEO</h5>
-                        <p class="card-text">¿Problemas con tu pc?
-                            funciona lento, fallas en encendido, drivers desactualizados, virus, etc..
-                            este es el servicio que necesitas  </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'tool/img/ofertas/reinicio_e.jpg' %}" alt="Teclado Gamer">
-                    <div class="card-body">
-                        <h5 class="card-title">MEJORA TU EQUIPO</h5>
-                        <p class="card-text">¿Formateas tu equipo y sigue lento? ¡Te lo mejoramos!
-                        </p>
-                    </div>
-                </div>
+                   
+                </form>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <br>
-
-        <div class="row">
-            <div class="col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="   " alt="mantencion-pc">
-                    <div class="card-body">
-                        <h4 class="card-title">MANTENCION NOTEBOOK</h4>
-                        <p class="card-text">Con el tiempo la ventilación del ordenador acumulará polvo, provocando
-                            daños en el equipo con el aumento de la temperatura.</p>
-                    </div>
-                </div>
+        <div class="container marg_sup marg_inf">
+            <div class="row">
+                <h1> Productos</h1>
+            </div>
+            <div class="row marg_inf">
+                <table class="table table-striped">
+                    <tr>
+                        <td>Codigo</td>
+                        <td>Nombre </td>
+                        <td>Precio</td>
+                        <td>Stock</td>
+                        <td>Imagen</td>
+                        <td>Categoria</td>
+                        <td>Opciones</td>
+                    </tr>
+                    {% for x in productos %}
+                    <tr>
+                        <td>{{ x.codigo }}</td>
+                        <td>{{ x.nombreProducto }}</td>
+                        <td>{{ x.precio }}</td>
+                        <td>{{ x.stock }}</td>
+                        <td>
+                            <img src="{{ x.imagen.url }}" style="width: 100%;max-width: 150px;" alt="">
+                        </td>
+                        <td>{{ x.categoria }}</td>
+                        <td><a class="btn btn-center btn-outline-danger active marg" href="{% url 'deletepr' x.codigo %}" >Eliminar</a> <a class="btn btn-center btn-outline-primary active" href="{% url 'modificar_pro' x.codigo %}" >Modificar</a> </td>
+                    </tr>
+                    {% endfor %}
+                </table>
             </div>
 
-            <div class="col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="   "alt="mantencion-note">
-                    <div class="card-body">
-                        <h4 class="card-title">MANTENCION PC ESCRITORIO</h4>
-                        <p class="card-text">¿Notas una baja notable en el rendimiento de tus juegos y/o Sistema
-                            Operativo?</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'tool/img/ofertas/armado_pc.jpg' %}" alt="Armado_pc">
-                    <div class="card-body">
-                        <h5 class="card-title">SERVICIO ARMADO PC</h5>
-                        <p class="card-text"> Te recomendaremos las mejores alternativas en CPU, RAM, Disco duro, etc.. para que tu estación de trabajo o juego </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    </div></div>
     <br>
     <!--FOOTER-->
     <footer style="background-color: #212529">
@@ -168,7 +137,7 @@
                             |
                             <a class="text-white" href="{% url 'nosotros' %}">Nosotros</a>
                             |
-                            <a class="text-white" href="{% url 'servicios' %}">Servicios</a>
+                            <a class="text-white" href="{% ulr 'servicios'}">Servicios</a>
                             |
                             <a class="text-white" href="{% url 'tiendas' %}">Tiendas</a>
                         </p>

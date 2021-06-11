@@ -16,6 +16,7 @@
     <!--CSS-->
     <link rel="stylesheet" href="{% static 'tool/css/estilos.css' %}">
     <link rel="stylesheet" href="{% static 'tool/css/registrar.css' %}">
+    <link rel="stylesheet" href="{% static 'tool/css/ventacomp.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
     <link rel="stylesheet" href="{% static 'tool/css/gotop.css' %}">
     <!--GOTOP-->
@@ -71,6 +72,42 @@
     <script src="{% static 'tool/js/gotop.js' %}"></script>
 
     <!--FIN BOTON SUBIR-->
+    
+    <!--Form de buscar-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 search">
+                <form id="form" method="get" class="form d-flex">
+                    <div id="custom-search-input" class="form-control">
+                        <input type="text" id="search" placeholder="Buscar nombre..." minlength="2" id="search" name="search"
+                            requeride />
+                        <span class="input-group-list">
+                            <small>Error message</small>
+                            <i class="icon icon-search"></i>
+                        </span>
+                    </div>
+                    <button type="submit" class="btn btn-center">Buscar</button>
+                </form>
+            </div>
+        </div>
+        <!--Respuesta de busqueda-->
+        <div class="row marg_inf">
+            <table class="table table-striped">
+                {% for m in usuario %}
+                <tr>
+                    <td>{{ m.idUser }}</td>
+                    <td>{{ m.nombres }}</td>
+                    <td>{{ m.apellidos }}</td>
+                    <td>{{ m.correo }}</td>
+                    <td>{{ m.telefono }}</td>
+                    <td>******</td>
+                    <td><a class="btn btn-center btn-outline-danger active" href="{% url 'deleteus' m.idUser %}" >Eliminar</a> 
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>   
     <div class="container marg_sup marg_inf">
         <div class="row">
 
@@ -101,8 +138,8 @@
                     <td>{{ m.apellidos }}</td>
                     <td>{{ m.correo }}</td>
                     <td>{{ m.telefono }}</td>
-                    <td>{{ m.password }}</td>
-                    <td><a class="btn btn-center btn-outline-danger active" href="{% url 'deleteus' m.idUser %}" >Eliminar</a> <a class="btn btn-center btn-outline-primary active" href="{% url 'modificar_usu' m.idUser %}" >Modificar</a> </td>
+                    <td>******</td>
+                    <td><a class="btn btn-center btn-outline-danger active" href="{% url 'deleteus' m.idUser %}" >Eliminar</a> 
 
                 </tr>
                 {% endfor %}
