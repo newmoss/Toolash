@@ -1,5 +1,5 @@
 const form = document.getElementById('form');
-const email = document.getElementById('email');
+const email = document.getElementById('username');
 const password = document.getElementById('password');
 
 form.addEventListener('submit', e => {
@@ -45,6 +45,6 @@ function setSuccessFor(input) {
 	formControl.className = 'form-control success';
 }
 
-function isEmail(email) {
-	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-}
+//function isEmail(email) {
+	//return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+//}

@@ -24,6 +24,7 @@ class Usuario(models.Model):
     idUser = models.AutoField(primary_key=True)
     nombres = models.CharField(max_length=50)
     apellidos = models.CharField(max_length=50)
+    numdoc = models.CharField(max_length=20,null=True)
     correo = models.CharField(max_length=30)
     telefono = models.IntegerField()
     password = models.CharField(max_length=20)

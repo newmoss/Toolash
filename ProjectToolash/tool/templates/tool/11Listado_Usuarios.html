@@ -51,6 +51,19 @@
 
                 <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
 
+                {% if user.is_authenticated %}
+                <div class="d-flex flex-row justify-content-center ">
+                    <p></p>
+                    <a href="{% url 'logout' %}" class="btn btn-outline-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg> Cerrar sesion {{ user.username }}
+                    </a>
+                </div>
+                {% else %}
                 <div class="d-flex flex-row justify-content-around ">
                     <a href="{% url 'login' %}" class="btn btn-outline-danger">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
@@ -61,6 +74,7 @@
                         </svg> Unirse
                     </a>
                 </div>
+                {% endif %}
             </div>
         </div>
     </nav>
@@ -123,23 +137,32 @@
         <div class="row marg_inf">
             <table class="table table-striped">
                 <tr>
-                    <td>ID</td>
+                    <!--<td>ID</td>-->
                     <td>Nombres</td>
                     <td>Apellidos</td>
                     <td>Email</td>
                     <td>Telefono</td>
+                    <td>Rut</td>
+                    <td>Tipo Documento</td>
+                    <td>Tipo usuario</td>
                     <td>Pass</td>
                     <td>Opciones</td>
                 </tr>
                 {% for m in usuarios %}
                 <tr>
-                    <td>{{ m.idUser }}</td>
+                    <!--<td>{{ m.idUser }}</td>-->
                     <td>{{ m.nombres }}</td>
                     <td>{{ m.apellidos }}</td>
                     <td>{{ m.correo }}</td>
                     <td>{{ m.telefono }}</td>
+                    <td>{{ m.numdoc }}</td>
+                    <td>{{ m.tipodoc }}</td>
+                    <td>{{ m.tipouser }}</td>
                     <td>******</td>
-                    <td><a class="btn btn-center btn-outline-danger active" href="{% url 'deleteus' m.idUser %}" >Eliminar</a> 
+                    <td><a class="btn btn-center btn-outline-danger active" 
+                        href="{% url 'deleteus' m.idUser %}" >Eliminar</a>
+                        <a class="btn btn-center btn-outline-primary active"
+                        href="{% url 'modificar_usu' m.idUser %}">Modificar</a> </td>
 
                 </tr>
                 {% endfor %}

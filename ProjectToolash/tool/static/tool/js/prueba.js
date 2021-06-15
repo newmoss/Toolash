@@ -3,6 +3,7 @@ const nombre = document.getElementById('nombres');
 const apellido = document.getElementById('apellidos');
 const email = document.getElementById('email');
 const telefono = document.getElementById('numero');
+const rut = document.getElementById('rut');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
 
@@ -18,6 +19,7 @@ function checkInputs(e) {
 	const apellidoValue = apellidos.value.trim();
 	const emailValue = email.value.trim();
 	const telefonoValue = numero.value.trim();
+	const rutValue = rut.value.trim();
 	const passwordValue = password.value.trim();
 	const password2Value = password2.value.trim();
 
@@ -47,6 +49,12 @@ function checkInputs(e) {
 		e.preventDefault();
 	} else {
 		setSuccessFor(telefono);
+	}
+	if (rutValue === '') {
+		setErrorFor(rut, 'No puede dejar el rut en blanco');
+		e.preventDefault();
+	} else {
+		setSuccessFor(rut);
 	}
 	if (passwordValue === '') {
 		setErrorFor(password, 'Debe ingresar una contraseña.');

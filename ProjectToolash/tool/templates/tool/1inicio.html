@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,7 +39,8 @@
 
         <!--LOGO-->
         <a class="navbar-brand" href="{% url 'inicio' %}">
-            <img src="{% static 'tool/img/png/logo2.png' %}" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
+            <img src="{% static 'tool/img/png/logo2.png' %}" width="200" height="100" class="d-inline-block align-top"
+                alt="Logo toolash">
         </a>
 
         <!--LINKS-->
@@ -51,7 +53,19 @@
                 <a class="nav-item nav-link" href="{% url 'seguridad' %}">Seguridad</a>
 
                 <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
-
+                {% if user.is_authenticated %}
+                <div class="d-flex flex-row justify-content-center ">
+                    <p></p>
+                    <a href="{% url 'logout' %}" class="btn btn-outline-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg> Cerrar sesion {{ user.username }}
+                    </a>
+                </div>
+                {% else %}
                 <div class="d-flex flex-row justify-content-around ">
                     <a href="{% url 'login' %}" class="btn btn-outline-danger">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
@@ -62,6 +76,7 @@
                         </svg> Unirse
                     </a>
                 </div>
+                {% endif %}
             </div>
         </div>
     </nav>
@@ -172,8 +187,9 @@
             {% if messages %}
             <div>
                 {% for i in messages %}
-                    <p style="color:darkseagreen;">{{ i }} </style></p>
-                    {% endfor %}
+                <p style="color:darkseagreen;">{{ i }} </style>
+                </p>
+                {% endfor %}
             </div>
             {% endif %}
             <div class="con-contacto">
@@ -208,10 +224,12 @@
                             <textarea name="mensaje" id="mensaje" rows="3"></textarea>
                         </p>
                         <div>
-                            <center><button type="reset" class="btn btn-center btn-danger marg_form">Limpiar</button></center>
+                            <center><button type="reset" class="btn btn-center btn-danger marg_form">Limpiar</button>
+                            </center>
                         </div>
                         <div>
-                            <center><button type="submit" id="guardar" class="btn btn-center marg_form">Enviar</button></center>
+                            <center><button type="submit" id="guardar" class="btn btn-center marg_form">Enviar</button>
+                            </center>
                         </div>
 
                     </form>
@@ -232,7 +250,7 @@
             <!--FINAL FORMULARIO-->
         </div>
     </div>
-    
+
     <!--OTRA FILA-->
 
     <section class="container">

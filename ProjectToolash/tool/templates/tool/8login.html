@@ -49,8 +49,21 @@
 
                 <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
 
+                {% if user.is_authenticated %}
+                <div class="d-flex flex-row justify-content-center ">
+                    <p></p>
+                    <a href="{% url 'logout' %}" class="btn btn-outline-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg> Cerrar sesion {{ user.username }}
+                    </a>
+                </div>
+                {% else %}
                 <div class="d-flex flex-row justify-content-around ">
-                    <a href="{% url 'login' %}" class="btn btn-outline-danger active">
+                    <a href="{% url 'login' %}" class="btn btn-outline-danger">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
                             class="bi bi-person-circle" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -59,6 +72,7 @@
                         </svg> Unirse
                     </a>
                 </div>
+                {% endif %}
 
             </div>
         </div>
@@ -74,7 +88,7 @@
     {% if messages %}
     <div>
         {% for i in messages %}
-            <p style="color:darkseagreen;">{{ i }} </style></p>
+            <p style="color:red;">{{ i }} </style></p>
             {% endfor %}
     </div>
     {% endif %}
@@ -89,11 +103,12 @@
                 </svg> Inicio de sesion
             </h1>
         </div>
-        <form id="form" method="POST" class="form" action="{% url 'inicio' %}">
+        <form id="form" method="POST" class="form" action="{% url 'sesion' %}">
+            {% csrf_token %}
             <div class="form-control">
                 <label></label>
                 <i class="fas fa-envelope icon"></i>
-                <input type="email" placeholder="Correo Electronico" id="email">
+                <input type="text" placeholder="Correo o Usuario" id="username" name="username">
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
@@ -101,7 +116,7 @@
             <div class="form-control">
                 <label></label>
                 <i class="fas fa-key icon"></i>
-                <input type="password" placeholder="Contraseña" id="password">
+                <input type="password" placeholder="Contraseña" id="password" name="password">
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>

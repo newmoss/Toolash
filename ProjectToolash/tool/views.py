@@ -1,6 +1,7 @@
 from django.db.models.query_utils import Q
 from django.shortcuts import redirect, render
-from .models import Categoria, Usuario,Tipodocumento,Direccion,Producto,Contacto
+from django.contrib.auth import authenticate, login, logout
+from .models import Categoria, Tipouser, Usuario,Tipodocumento,Producto,Contacto
 from django.contrib import messages
 
 # Create your views here.
@@ -69,11 +70,37 @@ def tiendas(request):
 
 
 def registro(request):
-    return render(request,'tool/7registro.html')
+    tip = Tipodocumento.objects.all()
+    #tip = Tipodocumento.objects.filter(idDoc = 1)
 
-def login(request):
-    return render(request,'tool/8login.html')
+    user = Tipouser.objects.all()
+    user = Tipouser.objects.filter(idTipo = 1)
+    contexto = {"tipodoc":tip,"user":user}
+    return render(request,'tool/7registro.html',contexto)
 
+#INICIO SESION
+
+def login_view(request):
+    u = request.POST['username']
+    c = request.POST['password']
+
+    user = authenticate(username = u, password = c)
+
+    if user is not None:
+        if user.is_active:
+            login(request,user)
+            return redirect('inicio')
+        else:
+            messages.error(request,'Usuario Inactivo')
+    else:
+        messages.error(request,'Usuario y/o contraseña incorrecta')
+
+    return redirect('login')
+
+def logout_view(request):
+    logout(request)
+    return redirect('inicio')
+#-----------------------------------------------------------
 def emailpass(request):
     return render(request,'tool/9emailpass.html')
 
@@ -154,8 +181,10 @@ def modificar_cont(request,id):
     return render(request,'tool/12modificar.html',contexto)
 
 def modificar_usu(request,id):
+    tip = Tipodocumento.objects.all()
+    tipo = Tipouser.objects.all()
     user = Usuario.objects.get(idUser = id) #Generando select * from tabla user
-    contexto = {"user":user}
+    contexto = {"user":user,"tip":tip,"tipo":tipo}
     return render(request,'tool/12modificar_usuario.html',contexto)
 
 def modificar_pro(request,id):
@@ -173,12 +202,20 @@ def registrar(request):
     apellido = request.POST['apellidos']
     email = request.POST['email']
     tel = request.POST['numero']
+    rut = request.POST['rut']
+    tip = request.POST['tipodoc']
+    user = request.POST['user']
     passw = request.POST['password']
-    Usuario.objects.create(nombres = nombres,apellidos = apellido,correo = email,telefono = tel, password = passw )
+
+
+    user_c = Tipouser.objects.get(idTipo = user)
+    tip_c = Tipodocumento.objects.get(idDoc = tip)
+    
+    Usuario.objects.create(nombres = nombres,apellidos = apellido,correo = email,telefono = tel, numdoc = rut, tipodoc = tip_c , tipouser = user_c, password = passw )
     messages.success(request,'Usuario registrado')
     return redirect('login')
 
-#enviar contacto inicio
+
 def contacto(request):
     nombre = request.POST['nombres']
     apellido = request.POST['apellidos']
@@ -258,6 +295,9 @@ def modificar_usuario(request):
     apellido = request.POST['apellidos']
     email = request.POST['email']
     numero = request.POST['numero']
+    rut = request.POST['rut']
+    tip = request.POST['tip']
+    tipo = request.POST['tipo']
     password = request.POST['password']
 
     user = Usuario.objects.get(idUser = ide)#el registro original
@@ -266,7 +306,13 @@ def modificar_usuario(request):
     user.apellidos = apellido
     user.correo = email
     user.telefono = numero
+    user.numdoc = rut
     user.password = password
+
+    tipo_2 = Tipouser.objects.get(idTipo = tipo)
+    tip_2 = Tipodocumento.objects.get(idDoc = tip)
+    user.tipodoc = tip_2
+    user.tipouser = tipo_2
 
     user.save()
     messages.success(request, 'Usuario Modificado')

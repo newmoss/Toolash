@@ -50,6 +50,19 @@
 
                 <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
 
+                {% if user.is_authenticated %}
+                <div class="d-flex flex-row justify-content-center ">
+                    <p></p>
+                    <a href="{% url 'logout' %}" class="btn btn-outline-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg> Cerrar sesion {{ user.username }}
+                    </a>
+                </div>
+                {% else %}
                 <div class="d-flex flex-row justify-content-around ">
                     <a href="{% url 'login' %}" class="btn btn-outline-danger">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
@@ -60,6 +73,7 @@
                         </svg> Unirse
                     </a>
                 </div>
+                {% endif %}
             </div>
         </div>
     </nav>
@@ -73,14 +87,7 @@
 
     <div class="containera marg">
         <div class="header">
-            <h2>
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                    class="bi bi-person-plus-fill" viewBox="0 0 16 16">
-                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                    <path fill-rule="evenodd"
-                        d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
-                </svg> Crear cuenta
-            </h2>
+            <h2>Modificar cuenta de usuario</h2>
         </div>
         <form id="form" method="POST" class="form" action="{% url 'modificar_usuario' %}" enctype="multipart/form-data">
             {% csrf_token %}
@@ -118,6 +125,37 @@
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Rut</label>
+                <input type="text"  id="rut" name="rut"/>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Tipo Documento: </label>
+                <select class="form-control" name="tip" id="tip">
+                    {% for x in tip %}
+                        {% if x.idDoc == usuario.tipodoc.idDoc %}
+                        <option value="{{ x.idDoc }}" selected>{{ x.descripcion }}</option>
+                        {% else %}
+                        <option value="{{ x.idDoc }}">{{ x.descripcion }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-control">
+                <label>Tipo Usuario: </label>
+                <select class="form-control" name="tipo" id="tipo">
+                    {% for x in tipo %}
+                        {% if x.idTipo == usuario.tipouser.idTipo %}
+                        <option value="{{ x.idTipo }}" selected>{{ x.clieAdmin }}</option>
+                        {% else %}
+                        <option value="{{ x.idTipo }}">{{ x.clieAdmin }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
             </div>
             <div class="form-control">
                 <label for="password">Contraseña</label>

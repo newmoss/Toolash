@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import  buscar_pro, eliminarcon, eliminarpr, eliminarus, ingresar_producto, inicio, listado_contacto, listado_producto, listado_usuarios, modificar_cont, modificar_contacto, modificar_pro, modificar_producto, modificar_usu, modificar_usuario, mostrar_producto, nosotros, producto,servicios,servtec,seguridad,venta,tiendas,registro,login,emailpass,password,registrar,contacto
+from django.contrib.auth.views import LoginView, LogoutView
+from .views import  buscar_pro, eliminarcon, eliminarpr, eliminarus, ingresar_producto, inicio, listado_contacto, listado_producto, listado_usuarios, login_view, logout_view, modificar_cont, modificar_contacto, modificar_pro, modificar_producto, modificar_usu, modificar_usuario, mostrar_producto, nosotros, producto,servicios,servtec,seguridad,venta,tiendas,registro,emailpass,password,registrar,contacto
 
 urlpatterns = [
     path('', inicio, name="inicio"),
@@ -12,11 +13,15 @@ urlpatterns = [
     path('mostrarproducto/<id>', mostrar_producto, name="mostrarproducto"), #PERFIL DE PRODUCTO
     path('tiendas', tiendas, name="tiendas"),
     path('registro', registro, name="registro"),
-    path('login', login, name="login"),
+    path('login/',LoginView.as_view(template_name='tool/8login.html'), name="login"),
+    path('logout',logout_view,name="logout"),
+
+
+    path('sesion',login_view,name="sesion"),
     path('emailpass', emailpass, name="emailpass"),
     path('password', password, name="password"),
     path('buscar_pro', buscar_pro, name="buscar_pro"),
-     path('ingresar_producto', ingresar_producto, name="ingresar_producto"),
+    path('ingresar_producto', ingresar_producto, name="ingresar_producto"),
     
     #LISTADOS
 
