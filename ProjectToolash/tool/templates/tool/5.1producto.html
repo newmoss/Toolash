@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+
 <head>
     <script src="https://kit.fontawesome.com/0c8ac222e0.js" crossorigin="anonymous"></script>
     <meta charset="utf-8">
@@ -15,7 +16,7 @@
     <link type="text/css" rel="stylesheet" href="{% static 'tool/css/ventacomp.css' %}">
     <link type="text/css" rel="stylesheet" href="{% static 'tool/css/Productos.css' %}">
     <link type="text/css" rel="stylesheet" href="{% static 'tool/css/gotop.css' %}">
-    
+
     <title>Toolash INC</title>
 </head>
 
@@ -24,14 +25,15 @@
     <!--Menu navbar-->
 
     <nav class="navbar navbar-dark bg-dark navbar-expand-sm sticky-top">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#opciones"
+        <button class="navbar-toggler navbar-toggler-right bot_bord" type="button" data-toggle="collapse" data-target="#opciones"
             aria-controls="opciones" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <!--Logo-->
 
         <a class="navbar-brand" href="{% url 'inicio' %}">
-            <img src="{% static 'tool/img/png/logo2.png' %}" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
+            <img src="{% static 'tool/img/png/logo2.png' %}" width="200" height="100" class="d-inline-block align-top"
+                alt="Logo toolash">
         </a>
 
         <!--Links-->
@@ -58,8 +60,7 @@
                 </div>
             </div>
         </div>
-    </nav>  
-    <br>
+    </nav>
 
     <!--INICIO BOTON SUBIR-->
     <a id="move-to-top" class="animate filling" href="#">
@@ -70,20 +71,19 @@
 
     <div class="container marg_sup">
         <div class="row">
- 
             <div class="section group">
                 <div class="cont-desc span_1_of_2">
-                    <div class="grid images_3_of_2">
-                        <img src="{{ productos.imagen.url }}"  />
+                    <div class="grid images_3_of_2 marg_inf">
+                        <img src="{{ productos.imagen.url }}" />
                     </div>
                     <div class="desc span_3_of_2">
                         <h2>{{ productos.nombreProducto }}</h2>
-                        <div class="price">
-                            <p>Precio: <span>${{ productos.precio }}  / </span><span class="rallita" style="font-size:85%">$89.990</span>
-                            </p>
+                        <div class="available">
+                            <p>Precio: ${{ productos.precio }}</p>
                         </div>
                         <div class="available">
-                            <p>Opciones Disponibles :</p>
+                            <p>Stock Disponibles: {{ productos.stock }}</p>
+                            <p>Cantidad:</p>
                             <ul>
                                 <li>Cantidad:<select>
                                         <option>1</option>
@@ -94,14 +94,21 @@
                                     </select></li>
                             </ul>
                         </div>
-                        <br><br><br>
+                        <br><br>
                         <div class="share">
-                            <p><span style="font-size:70%">Compartir :</span></p>
+                            <p><span style="font-size:100%">Compartir :</span></p>
                             <ul>
-                                <button class="redesCom"><i class="far fa-envelope"></i></i></button>
-                                <button class="redesCom"><i class="fab fa-facebook-square"></i></button>
-                                <button class="redesCom"><i class="fab fa-instagram"></i></button>
-                                <button class="redesCom"><i class="fab fa-whatsapp"></i></button>
+                                <button class="redesCom">
+                                    <a href="mailto:support@eduonix.com"></a>
+                                    <i class="far fa-envelope"></i>
+                                </button>
+                                <button class="redesCom">
+                                    <a href="https://www.facebook.com/toolash.imperio/"></a>
+                                    <i class="fab fa-instagram"></i>
+                                </button>
+                                <button class="redesCom">
+                                    <i class="fab fa-facebook-square"></i>
+                                </button>
                             </ul>
                         </div>
                         <div class="add-cart">
@@ -113,6 +120,7 @@
             </div>
         </div>
     </div>
+
 
     <!--FOOTER-->
     <footer style="background-color: #212529">

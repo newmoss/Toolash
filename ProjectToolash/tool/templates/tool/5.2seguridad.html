@@ -39,7 +39,8 @@
 
         <!--LOGO-->
         <a class="navbar-brand" href="{% url 'inicio' %}">
-            <img src="{% static 'tool/img/png/logo2.png' %}" width="200" height="100" class="d-inline-block align-top" alt="Logo toolash">
+            <img src="{% static 'tool/img/png/logo2.png' %}" width="200" height="100" class="d-inline-block align-top"
+                alt="Logo toolash">
         </a>
 
         <!--LINKS-->
@@ -73,93 +74,75 @@
     </a>
     <script src="/js/gotop.js"></script>
     <!--FIN BOTON SUBIR-->
-    
+
+
     <div class="container">
-        <div class="container-fluid">
-            <form id="form" class="form d-flex" action="">
-                <div class="form-control">
-                    <input type="search" id="search" placeholder="Buscar" minlength="2" requeride />
-                    <small>Error message</small>
-                </div>
-                <button type="submit" class="btn btn-center">Buscar</button>
-            </form>
-        </div>
         <div class="row">
-            <div class="col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'tool/img/ofertas/camara1.png' %}" alt="Camara1">
-                    <div class="card-body">
-                        <h4 class="card-title">Cámara</h4>
-                        <p class="card-text">Kit cámaras de seguridad + XVR 4ch HD 1mp</p>
-                        <p class="rebaja"><span class="tachado">$119.990</span> rebaja de un 25%</p>
-                        <p class="dinero">$101.992</p>
-                        <div class="butom-buy">
-                            <center>
-                                <a href="#">Comprar</a>
-                            </center>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="col-md-12 search">
+                <form id="form" method="get" class="form d-flex">
+                    <div id="custom-search-input" class="form-control">
+                        <input type="text" id="search" placeholder="Buscar..." minlength="2" id="search" name="search"
+                            requeride />
+                        <span class="input-group-list">
+                            <small>Error message</small>
+                            <i class="icon icon-search"></i>
 
-            <div class="col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'tool/img/ofertas/camara2.jpg' %}" alt="Camara2">
-                    <div class="card-body">
-                        <h4 class="card-title">Cámara</h4>
-                        <p class="card-text">Cámara domo a prueba de vandalismo HD720P IR Hikvision</p>
-                        <p class="rebaja"><span class="tachado">$19.990</span> rebaja de un 25%</p>
-                        <p class="dinero">$16.992</p>
-                        <div class="butom-buy">
-                            <center>
-                                <a href="#">Comprar</a>
-                            </center>
-                        </div>
+                        </span>
                     </div>
-                </div>
+                    <button type="submit" class="btn btn-center">Buscar</button>
+
+                </form>
             </div>
         </div>
-    </div>
-    <div class="container">
-        <br>
-
-        <div class="row">
-            <div class="col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'tool/img/ofertas/servi_cam1.jpg' %}" alt="cam_servi1">
-                    <div class="card-body">
-                        <h4 class="card-title">Servicio instalación</h4>
-                        <p class="card-text">Servicio instalación cámara vandalismo HD720P IR Hikvision + XVR 4CH HD 1MP
-                        </p>
-                        <p class="rebaja"><span class="tachado">$131.992</span> rebaja de un 12%</p>
-                        <p class="dinero">$116.153 </p>
-                        <div class="butom-buy">
-                            <center>
-                                <a href="#">Comprar</a>
-                            </center>
+        <center>
+            <div class="row">
+                {% for x in productos %}
+                <div class="col-md separaciones_articulos">
+                    <div class="card text-center" style="width: 450px; height: 400;">
+                        <center><img class="card-img-top" src="{{ x.imagen.url }}" style="width: 350px"
+                                alt="Teclado Gamer">
+                        </center>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ x.nombreProducto }}</h4>
+                            <p class="card-text"> {{ x. }}</p>
+                            <p class="rebaja"><span class="tachado">Rebaja de un 25%</span></p>
+                            <p class="dinero">${{ x.precio }} </p>
+                            <div class="butom-buy">
+                                <center>
+                                    <a href="{% url 'mostrarproducto' x.codigo %}">Comprar</a>
+                                </center>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <br>
+                {% endfor %}
             </div>
-
-            <div class="col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'tool/img/ofertas/servi_Cam2.jpg' %}" alt="cam_servi2">
-                    <div class="card-body">
-                        <h4 class="card-title">Kit servicio</h4>
-                        <p class="card-text"> Kit de servicio de mantención y reparación de cámaras de seguridad a
-                            domicilio.</p>
-                        <p class="rebaja"><span class="tachado">$70.000</span> rebaja de un 24%</p>
-                        <p class="dinero">$53.200</p>
-                        <div class="butom-buy">
-                            <center>
-                                <a href="#">Comprar</a>
-                            </center>
+        </center>
+        <hr width=100% align="right" size=10 color="#FF0000">
+        <center>
+            <div class="row">
+                {% for x in num_prod %}
+                <div class="col-md separaciones_articulos">
+                    <div class="card text-center" style="width: 450px; height: 400;">
+                        <center><img class="card-img-top" src="{{ x.imagen.url }}" style="width: 350px;"
+                                alt="Teclado Gamer"></center>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ x.nombreProducto }}</h4>
+                            <p class="card-text"> {{ x. }}</p>
+                            <p class="rebaja"><span>25% DE DESCUENTO</span></p>
+                            <p class="dinero">${{ x.precio }} </p>
+                            <div class="butom-buy">
+                                <center>
+                                    <a href="{% url 'mostrarproducto' x.codigo %}">Comprar</a>
+                                </center>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-        </div>
+        </center>
     </div>
 
     <br>

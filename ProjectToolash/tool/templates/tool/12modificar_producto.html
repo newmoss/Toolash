@@ -73,14 +73,7 @@
 
     <div class="containera marg">
         <div class="header">
-            <h2>
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                    class="bi bi-person-plus-fill" viewBox="0 0 16 16">
-                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                    <path fill-rule="evenodd"
-                        d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
-                </svg> Crear cuenta
-            </h2>
+            <h2>Modificar Registro</h2>
         </div>
         <form id="form" method="POST" class="form" action="{% url 'modificar_producto' %}" enctype="multipart/form-data">
             {% csrf_token %}
@@ -111,6 +104,25 @@
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label for="imagen">Imagen: </label>
+                <input type="file" value="{{ producto.imagen.url }}" name="imagen" id="imagen">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error message</small>
+            </div>
+            <div class="form-control">
+                <label>Categoria: </label>
+                <select class="form-control" name="cat" id="cat">
+                    {% for x in cat %}
+                        {% if x.idCategoria == producto.categoria.idCategoria %}
+                        <option value="{{ x.idCategoria }}" selected>{{ x.nombreCat }}</option>
+                        {% else %}
+                        <option value="{{ x.idCategoria }}">{{ x.nombreCat }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
             </div>
             <br>
             <button type="submit" class="btn btn-center">Modificar</button>

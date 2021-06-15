@@ -1,6 +1,6 @@
 from django.db.models.query_utils import Q
 from django.shortcuts import redirect, render
-from .models import Usuario,Tipodocumento,Direccion,Producto,Contacto
+from .models import Categoria, Usuario,Tipodocumento,Direccion,Producto,Contacto
 from django.contrib import messages
 
 # Create your views here.
@@ -14,10 +14,32 @@ def servicios(request):
     return render(request,'tool/3servicios.html')
 
 def servtec(request):
-    return render(request,'tool/5.3servtec.html')
+    queryset = request.GET.get("search") 
+    print(queryset)
+    produc = Producto.objects.filter(nombreProducto = True)
+    if queryset:
+        produc = Producto.objects.filter(
+            Q(nombreProducto__icontains= queryset)
+        ).distinct()#BUSCAR
+
+    num_produ=Producto.objects.all()
+    num_produ=Producto.objects.filter(categoria = 3)
+    context={'num_prod':num_produ,"productos":produc}
+    return render(request,'tool/5.3servtec.html',context)
 
 def seguridad(request):
-    return render(request,'tool/5.2seguridad.html')
+    queryset = request.GET.get("search") 
+    print(queryset)
+    produc = Producto.objects.filter(nombreProducto = True)
+    if queryset:
+        produc = Producto.objects.filter(
+            Q(nombreProducto__icontains= queryset)
+        ).distinct()#BUSCAR
+
+    num_produ=Producto.objects.all()
+    num_produ=Producto.objects.filter(categoria = 2)
+    context={'num_prod':num_produ,"productos":produc}
+    return render(request,'tool/5.2seguridad.html',context)
 
 def venta(request):
     queryset = request.GET.get("search") 
@@ -29,6 +51,7 @@ def venta(request):
         ).distinct()#BUSCAR
 
     num_produ=Producto.objects.all()
+    num_produ=Producto.objects.filter(categoria = 1)
     context={'num_prod':num_produ,"productos":produc}
     return render(request,'tool/5venta.html',context)
 
@@ -56,6 +79,11 @@ def emailpass(request):
 
 def password(request):
     return render(request,'tool/10password.html')
+
+def ingresar_producto(request):
+    cat = Categoria.objects.all()
+    contexto = {"cat_m":cat}
+    return render(request,'tool/Ingresar_producto.html',contexto)
 
 def buscar_pro(request):
     queryset = request.GET.get("search") 
@@ -131,8 +159,9 @@ def modificar_usu(request,id):
     return render(request,'tool/12modificar_usuario.html',contexto)
 
 def modificar_pro(request,id):
+    cat = Categoria.objects.all()
     pro = Producto.objects.get(codigo = id) #Generando select * from tabla user
-    contexto = {"producto":pro}
+    contexto = {"producto":pro ,"cat":cat}
     return render(request,'tool/12modificar_producto.html',contexto)
 
 
@@ -161,6 +190,20 @@ def contacto(request):
 
     messages.success(request,'Mensaje enviado')
     return redirect('inicio')
+
+def producto(request):
+    nombre_m = request.POST['nombreProducto']
+    precio_m = request.POST['precio']
+    stock_m = request.POST['stock']
+    cat_m = request.POST['cat']
+    imagen_m = request.FILES['imagen']
+
+    cat_c = Categoria.objects.get(idCategoria= cat_m)
+
+    Producto.objects.create(nombreProducto = nombre_m ,precio = precio_m ,stock = stock_m , imagen = imagen_m , categoria = cat_c )
+
+    messages.success(request,'Producto Registrado')
+    return redirect('ingresar_producto')
 #-------------------------------------------------------------------------------------------------------------
 
 
@@ -234,6 +277,9 @@ def modificar_producto(request):
     nombre = request.POST['nombreProducto']
     precio = request.POST['precio']
     stock = request.POST['stock']
+    imagen_2 = request.FILES['imagen']
+    cate = request.POST['cat']
+    
 
     pro = Producto.objects.get(codigo = ide)#el registro original
     #comienzo a reemplazar los valores en ese registro original
@@ -241,16 +287,12 @@ def modificar_producto(request):
     pro.nombreProducto = nombre
     pro.precio = precio
     pro.stock = stock
+    pro.imagen.url= imagen_2
+    
+    cat_m2 = Categoria.objects.get(idCategoria = cate)
+    pro.categoria = cat_m2
 
     pro.save()
     messages.success(request, 'Producto Modificado')
     return redirect('listadopr')
 
-
-
-
-def prod(request):
-    num_produ=Producto.objects.all()
-    
-    return render(request,'venta',context={'num_prod':num_produ},
-    )

@@ -69,90 +69,73 @@
     <script src="{% static 'tool/js/gotop.js' %}"></script>
     <!--FIN BOTON SUBIR-->
     
+  
     <div class="container">
-        <div class="container-fluid">
-            <form id="form" method="POST" class="form d-flex" action="">
-                <div class="form-control">
-                    <input type="search" id="search" placeholder="Buscar" minlength="2" requeride />
-                    <small>Error message</small>
-                </div>
-                <button type="submit" class="btn btn-center">Buscar</button>
-            </form>
-        </div>
         <div class="row">
-            <div class="col-md-4 col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'tool/img/ofertas/diagnostic.jpg' %}" alt="Procesador">
-                    <div class="card-body">
-                        <h5 class="card-title">DIAGNOSTICO<br>PC</h5>
-                        <p class="card-text">Analizamos pc con herrmientas </p>
+            <div class="col-md-12 search">
+                <form id="form" method="get" class="form d-flex">
+                    <div id="custom-search-input" class="form-control">
+                        <input type="text" id="search" placeholder="Buscar..." minlength="2" id="search" name="search"
+                            requeride />
+                        <span class="input-group-list">
+                            <small>Error message</small>
+                            <i class="icon icon-search"></i>
 
+                        </span>
                     </div>
-                </div>
-            </div>
+                    <button type="submit" class="btn btn-center">Buscar</button>
 
-            <div class="col-md-4 col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'tool/img/ofertas/instal_win.jpg' %}" alt="Instalacion">
-                    <div class="card-body">
-                        <h5 class="card-title">REINSTALACION DE SISTEMA / FORMATEO</h5>
-                        <p class="card-text">¿Problemas con tu pc?
-                            
-                            .</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'tool/img/ofertas/reinicio_e.png' %}" alt="Teclado Gamer">
-                    <div class="card-body">
-                        <h5 class="card-title">MEJORA TU EQUIPO</h5>
-                        <p class="card-text">¿Formateas tu equipo y sigue lento? ¡Te lo mejoramos!
-                        </p>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
+        <center>
+            <div class="row">
+                {% for x in productos %}
+                <div class="col-md separaciones_articulos">
+                    <div class="card text-center" style="width: 450px; height: 400;">
+                        <center><img class="card-img-top" src="{{ x.imagen.url }}" style="width: 350px"
+                                alt="Teclado Gamer">
+                        </center>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ x.nombreProducto }}</h4>
+                            <p class="card-text"> {{ x. }}</p>
+                            <p class="rebaja"><span class="tachado">Rebaja de un 15%</span></p>
+                            <div class="butom-buy">
+                                <center>
+                                    <a href="{% url 'mostrarproducto' x.codigo %}">Comprar</a>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                {% endfor %}
+            </div>
+        </center>
+        <hr width=100% align="right" size=10 color="#FF0000">
+        <center>
+            <div class="row">
+                {% for x in num_prod %}
+                <div class="col-md separaciones_articulos">
+                    <div class="card text-center" style="width: 450px; height: 400;">
+                        <center><img class="card-img-top" src="{{ x.imagen.url }}" style="width: 350px;"
+                                alt="Teclado Gamer"></center>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ x.nombreProducto }}</h4>
+                            <p class="card-text"> {{ x. }}</p>
+                            <p class="rebaja"><span>15% DE DESCUENTO</span></p>
+                            <div class="butom-buy">
+                                <center>
+                                    <a href="{% url 'mostrarproducto' x.codigo %}">Comprar</a>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </center>
     </div>
-    <div class="container">
-        
-
-        <div class="row">
-            <div class="col-md-4 col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'tool/img/ofertas/mantenimientonote.jpg' %}" alt="mantencion-pc">
-                    <div class="card-body">
-                        <h4 class="card-title">MANTENCION NOTEBOOK</h4>
-                        <p class="card-text">Con el tiempo la ventilación del ordenador acumulará polvo, provocando
-                            daños en el equipo con el aumento de la temperatura.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class=".col-md-4 col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'tool/img/ofertas/pcmantencion.jpg' %}"alt="mantencion-note">
-                    <div class="card-body">
-                        <h4 class="card-title">MANTENCION PC ESCRITORIO</h4>
-                        <p class="card-text">¿Notas una baja notable en el rendimiento de tus juegos y/o Sistema
-                            Operativo?</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-md separaciones_articulos">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'tool/img/ofertas/armado_pc.jpg' %}" alt="Armado_pc">
-                    <div class="card-body">
-                        <h4 class="card-title">SERVICIO ARMADO PC</h4>
-                        <p class="card-text"> Te recomendaremos las mejores alternativas en CPU, RAM, Disco duro, etc.. para que tu estacion de trabajo o juego </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <br>
     <!--FOOTER-->
     <footer style="background-color: #212529">

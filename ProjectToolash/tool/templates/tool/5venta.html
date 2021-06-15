@@ -91,54 +91,56 @@
                 </form>
             </div>
         </div>
-
-        <div class="row">
-            {% for x in productos %}
-            <div class="col-md separaciones_articulos">
-                <div class="card text-center" style="width: 600px; height: 400;">
-
-                    <center><img class="card-img-top" src="{{ x.imagen.url }}" style="width: 200px;"
-                            alt="Teclado Gamer"></center>
-                    <div class="card-body">
-                        <h4 class="card-title">{{ x.nombreProducto }}</h4>
-                        <p class="card-text"> {{ x. }}</p>
-                        <p class="rebaja"><span class="tachado">$39.990</span> rebaja de un 25%</p>
-                        <p class="dinero">${{ x.precio }} </p>
-                        <div class="butom-buy">
-                            <center>
-                                <a href="{% url 'mostrarproducto' x.codigo %}">Comprar</a>
-                            </center>
+        <center>
+            <div class="row">
+                {% for x in productos %}
+                <div class="col-md separaciones_articulos">
+                    <div class="card text-center" style="width: 450px; height: 400;">
+                        <center><img class="card-img-top" src="{{ x.imagen.url }}" style="width: 350px"
+                                alt="Teclado Gamer">
+                        </center>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ x.nombreProducto }}</h4>
+                            <p class="card-text"> {{ x. }}</p>
+                            <p class="rebaja"><span class="tachado">Rebaja de un 25%</span></p>
+                            <p class="dinero">${{ x.precio }} </p>
+                            <div class="butom-buy">
+                                <center>
+                                    <a href="{% url 'mostrarproducto' x.codigo %}">Comprar</a>
+                                </center>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <br>
+                {% endfor %}
             </div>
-            <br>
-            {% endfor %}
-        </div>
-        <hr width=100%  align="right"  size=10 color="#FF0000">
-        <div class="row">
-            {% for x in num_prod %}
-            <div class="col-md separaciones_articulos">
-                <div class="card text-center" style="width: 600px;">
+        </center>
+        <hr width=100% align="right" size=10 color="#FF0000">
 
-                    <center><img class="card-img-top" src="{{ x.imagen.url }}" style="width: 400px;"
-                            alt="Teclado Gamer">
-                    </center>
-                    <div class="card-body">
-                        <h4 class="card-title">{{ x.nombreProducto }}</h4>
-                        <p class="card-text"> {{ x. }}</p>
-                        <p class="rebaja"><span class="tachado">$39.990</span> rebaja de un 25%</p>
-                        <p class="dinero">${{ x.precio }} </p>
-                        <div class="butom-buy">
-                            <center>
-                                <a href="{% url 'mostrarproducto' x.codigo %}">Comprar</a>
-                            </center>
+        <center>
+            <div class="row">
+                {% for x in num_prod %}
+                <div class="col-md separaciones_articulos">
+                    <div class="card text-center" style="width: 450px; height: 400;">
+                        <center><img class="card-img-top" src="{{ x.imagen.url }}" style="width: 350px;"
+                                alt="Teclado Gamer"></center>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ x.nombreProducto }}</h4>
+                            <p class="card-text"> {{ x. }}</p>
+                            <p class="rebaja"><span>25% DE DESCUENTO</span></p>
+                            <p class="dinero">${{ x.precio }} </p>
+                            <div class="butom-buy">
+                                <center>
+                                    <a href="{% url 'mostrarproducto' x.codigo %}">Comprar</a>
+                                </center>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
-        </div>
+        </center>
 
     </div>
     <br>
