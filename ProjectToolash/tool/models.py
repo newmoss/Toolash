@@ -40,7 +40,10 @@ class Contacto(models.Model):
     apellidos = models.CharField(max_length=30)
     correo = models.CharField(max_length=30)
     asunto = CharField(max_length=20)
-    mensaje = TextField(max_length=300) 
+    mensaje = CharField(max_length=500) 
+    
+    def __str__(self):
+        return self.nombres
 
 # TABLAS PARA DIRECCION
 
@@ -101,4 +104,13 @@ class Carritopro(models.Model):
     cantidad = models.IntegerField()
     subtotal = models.IntegerField()
     carro =  models.ForeignKey(Carro,on_delete=models.CASCADE,blank=False, null = True)
+    producto = models.ForeignKey(Producto,on_delete=models.CASCADE,blank=False)
+
+
+
+class Carrito(models.Model):
+    idCarrito = models.AutoField(primary_key=True)
+    cantidad = models.IntegerField()
+    subtotal = models.IntegerField()
+    usuario =  models.ForeignKey(Usuario,on_delete=models.CASCADE,blank=False, null = True)
     producto = models.ForeignKey(Producto,on_delete=models.CASCADE,blank=False)

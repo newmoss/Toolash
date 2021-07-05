@@ -1,20 +1,50 @@
+from django.db.models.aggregates import Aggregate, Sum
 from django.db.models.query_utils import Q
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+
+
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import View
+
 from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login, logout
-from .models import Categoria, Tipouser, Usuario,Tipodocumento,Producto,Contacto
+from .models import Carro, Categoria, Tipouser, Usuario,Tipodocumento,Producto,Contacto,Carrito
+from django.contrib.auth.hashers import make_password
 from django.contrib import messages
+
+class VistaRegistro(View):
+    def get(self,request):
+        form = UserCreationForm()
+        return render(request,'tool/0.html',{"form":form})
+    def post(self,request):
+            form = UserCreationForm(request.POST)
+            if form.is_valid():
+                usuario = form.save()
+                nombre_usuario = form.cleaned_data.get("username")
+                messages.success(request, F"Bienvenido {nombre_usuario}")
+                login(request,usuario)
+                return redirect ('inicio')
+            else:
+                for msg in form.error_messages:
+                    messages.error(request,form.error_messages[msg])
+
 
 # Create your views here.
 def inicio(request):
-    return render(request,'tool/1inicio.html')
+    contexto={}
+    return render(request,'tool/1inicio.html',contexto)
 
 def nosotros(request):
-    return render(request,'tool/2nosotros.html')
+    contexto={}
+    return render(request,'tool/2nosotros.html',contexto)
 
 def servicios(request):
-    return render(request,'tool/3servicios.html')
+    contexto={}
+    return render(request,'tool/3servicios.html',contexto)
 
 def servtec(request):
+
     queryset = request.GET.get("search") 
     print(queryset)
     produc = Producto.objects.filter(nombreProducto = True)
@@ -29,6 +59,7 @@ def servtec(request):
     return render(request,'tool/5.3servtec.html',context)
 
 def seguridad(request):
+
     queryset = request.GET.get("search") 
     print(queryset)
     produc = Producto.objects.filter(nombreProducto = True)
@@ -43,6 +74,7 @@ def seguridad(request):
     return render(request,'tool/5.2seguridad.html',context)
 
 def venta(request):
+
     queryset = request.GET.get("search") 
     print(queryset)
     produc = Producto.objects.filter(nombreProducto = True)
@@ -61,15 +93,18 @@ def mostrar_producto(request,id):
     contexto = {"productos":pro}
     return render(request,'tool/5.1producto.html',contexto)
 
+    
 def lol4(request):
     return render(request,'tool/lol4.html')
 
 
 def tiendas(request):
-    return render(request,'tool/6tiendas.html')
+    contexto={}
+    return render(request,'tool/6tiendas.html',contexto)
 
 
 def registro(request):
+
     tip = Tipodocumento.objects.all()
     #tip = Tipodocumento.objects.filter(idDoc = 1)
 
@@ -102,30 +137,26 @@ def logout_view(request):
     return redirect('inicio')
 #-----------------------------------------------------------
 def emailpass(request):
-    return render(request,'tool/9emailpass.html')
+    contexto={}
+    return render(request,'tool/9emailpass.html',contexto)
 
 def password(request):
-    return render(request,'tool/10password.html')
+    contexto={}
+    return render(request,'tool/10password.html',contexto)
 
 def ingresar_producto(request):
     cat = Categoria.objects.all()
     contexto = {"cat_m":cat}
     return render(request,'tool/Ingresar_producto.html',contexto)
 
-def buscar_pro(request):
-    queryset = request.GET.get("search") 
-    print(queryset)
-    produc = Producto.objects.filter(nombreProducto = True)
-    if queryset:
-        produc = Producto.objects.filter(
-            Q(nombreProducto__icontains= queryset)
-        ).distinct()
-    contexto={"productos":produc}
-    return render(request,'tool/buscar_pro.html',contexto)
+def options(request):
+    contexto={}    
+    return render(request,'tool/options.html',contexto)
 
 
 
 #------------------------LISTADOS----------------------------
+
 
 def listado_usuarios(request):
     queryset = request.GET.get("search") 
@@ -157,6 +188,7 @@ def listado_producto(request):
 
 
 def listado_contacto(request):
+    
     queryset = request.GET.get("search") 
     print(queryset)
     cont = Contacto.objects.filter(nombres = True)
@@ -193,6 +225,16 @@ def modificar_pro(request,id):
     contexto = {"producto":pro ,"cat":cat}
     return render(request,'tool/12modificar_producto.html',contexto)
 
+def perfil(request,id):
+    tip = Tipodocumento.objects.all()
+    userr = User.objects.all()
+    user = Usuario.objects.get(numDoc = userr.id)
+        #Generando select * from tabla user
+    contexto={
+        "user":user,
+        "tip":tip,
+        }
+    return render(request,'tool/perfil.html',contexto)
 
 
 #-------------------------------ENVIAR FORMULARIOS A BD--------------------------------#
@@ -210,9 +252,11 @@ def registrar(request):
 
     user_c = Tipouser.objects.get(idTipo = user)
     tip_c = Tipodocumento.objects.get(idDoc = tip)
-    
+
+    User.objects.create_user(id = rut,username= email,first_name = nombres,last_name = apellido,is_staff=0,is_active=1,email = email, password = passw)
     Usuario.objects.create(nombres = nombres,apellidos = apellido,correo = email,telefono = tel, numdoc = rut, tipodoc = tip_c , tipouser = user_c, password = passw )
-    messages.success(request,'Usuario registrado')
+    
+    messages.success(request,'Usuario creado exitosamente!')
     return redirect('login')
 
 
@@ -233,7 +277,14 @@ def producto(request):
     precio_m = request.POST['precio']
     stock_m = request.POST['stock']
     cat_m = request.POST['cat']
-    imagen_m = request.FILES['imagen']
+    #imagen_m = request.FILES['imagen']
+
+    #IMAGEN PREDETERMINADA
+    if request.FILES.get('imagen') == None:
+        imagen_m = 'imagenproducto.png'
+    else:
+        imagen_m = request.FILES['imagen']
+
 
     cat_c = Categoria.objects.get(idCategoria= cat_m)
 
@@ -249,21 +300,23 @@ def producto(request):
 def eliminarus(request, id):
     delet = Usuario.objects.get(idUser = id)
     delet.delete()
-    messages.success(request,'Eliminado exitosamente')
+    dele = User.objects.get(id = delet.numdoc)
+    dele.delete()
+    messages.success(request,'Usuario eliminado exitosamente!')
 
     return redirect('listadous')
 
 def eliminarpr(request, id):
     produc = Producto.objects.get(codigo = id)
     produc.delete()
-    messages.success(request,'Eliminado exitosamente')
+    messages.success(request,'Producto eliminado exitosamente!')
 
     return redirect('listadopr')
 
 def eliminarcon(request, id):
     contacto = Contacto.objects.get(idConct = id)
     contacto.delete()
-    messages.success(request,'Eliminado exitosamente')
+    messages.success(request,'Eliminado exitosamente!')
 
     return redirect('listadocon')
 
@@ -286,7 +339,6 @@ def modificar_contacto(request):
     contacto.mensaje = msj
 
     contacto.save()
-    messages.success(request, 'Contacto Modificado')
     return redirect('listadocon')
 
 def modificar_usuario(request):
@@ -296,26 +348,60 @@ def modificar_usuario(request):
     email = request.POST['email']
     numero = request.POST['numero']
     rut = request.POST['rut']
-    tip = request.POST['tip']
+    tips = request.POST['tips']
     tipo = request.POST['tipo']
     password = request.POST['password']
 
+    us = User.objects.get(id = rut)
     user = Usuario.objects.get(idUser = ide)#el registro original
     #comienzo a reemplazar los valores en ese registro original
-    user.nombres = nombre
-    user.apellidos = apellido
-    user.correo = email
-    user.telefono = numero
-    user.numdoc = rut
-    user.password = password
+
+    if user.nombres != nombre:
+        user.nombres = nombre
+        us.first_name = nombre
+    
+    if user.apellidos != apellido:
+        user.apellidos = apellido
+        us.last_name = apellido
+    
+    if user.correo != email:
+        user.correo = email
+        us.email = email
+    
+    if user.telefono != numero:
+        user.telefono = numero
+
+    if user.numdoc != rut:
+        user.numdoc = rut
+    
+    if user.password != password:
+        user.password = password
+        us.password = make_password(password)
+    #user.nombres = nombre
+    #user.apellidos = apellido
+    #user.correo = email
+    #user.telefono = numero
+    #user.numdoc = rut
+    #user.password = password
 
     tipo_2 = Tipouser.objects.get(idTipo = tipo)
-    tip_2 = Tipodocumento.objects.get(idDoc = tip)
+    tip_2 = Tipodocumento.objects.get(idDoc = tips)
+
+    #if user.tipodoc != tip_2:
+     #   user.tipdoc = tip_2
+    
+    if tipo_2.idTipo == 1:
+        us.is_staff = 0
+    if tipo_2.idTipo == 2:
+        us.is_staff = 1
+    if user.tipouser != tipo_2:
+        user.tipouser = tipo_2
     user.tipodoc = tip_2
-    user.tipouser = tipo_2
+    #user.tipouser = tipo_2
 
     user.save()
-    messages.success(request, 'Usuario Modificado')
+    us.save()
+    #messages.success(request, 'Usuario Modificado')
     return redirect('listadous')
 
 def modificar_producto(request):
@@ -323,22 +409,134 @@ def modificar_producto(request):
     nombre = request.POST['nombreProducto']
     precio = request.POST['precio']
     stock = request.POST['stock']
-    imagen_2 = request.FILES['imagen']
+    #imagen_2 = request.FILES['imagen']
     cate = request.POST['cat']
-    
 
     pro = Producto.objects.get(codigo = ide)#el registro original
-    #comienzo a reemplazar los valores en ese registro original
-    pro.codigo = ide
-    pro.nombreProducto = nombre
-    pro.precio = precio
-    pro.stock = stock
-    pro.imagen.url= imagen_2
+    #comienzo a reemplazar los valores en ese registro original    
+    
+    #MANTENER IMAGEN SI ES VACIA
+    if request.FILES.get('imagen') != None:
+        pro.imagen= request.FILES['imagen']
+    
+    if pro.nombreProducto != nombre:
+        pro.nombreProducto = nombre
+
+    if pro.precio != precio:
+        pro.precio = precio
+
+    if pro.stock != stock:
+        pro.stock = stock
+
+    #pro.nombreProducto = nombre
+    #pro.precio = precio
+    #pro.stock = stock
     
     cat_m2 = Categoria.objects.get(idCategoria = cate)
-    pro.categoria = cat_m2
+
+    if pro.categoria != cat_m2:
+        pro.categoria = cat_m2
+    #pro.categoria = cat_m2
 
     pro.save()
     messages.success(request, 'Producto Modificado')
     return redirect('listadopr')
 
+
+def modificar_perfil(request):
+    ide = request.POST['id']
+    nombre = request.POST['nombres']
+    apellido = request.POST['apellidos']
+    email = request.POST['email']
+    numero = request.POST['numero']
+    rut = request.POST['rut']
+    password = request.POST['password']
+
+
+    user = Usuario.objects.get(idUser = ide)#el registro original
+    us = User.objects.get(id = rut)
+    
+    #comienzo a reemplazar los valores en ese registro original
+
+    if user.nombres != nombre:
+        user.nombres = nombre
+        us.first_name = nombre
+    
+    if user.apellidos != apellido:
+        user.apellidos = apellido
+        us.last_name = apellido
+    
+    if user.correo != email:
+        user.correo = email
+        us.email = email
+    
+    if user.telefono != numero:
+        user.telefono = numero
+
+    if user.numdoc != rut:
+        user.numdoc = rut
+    
+    if user.password != password:
+        user.password = password
+        us.password = make_password(password)
+    #user.nombres = nombre
+    #user.apellidos = apellido
+    #user.correo = email
+    #user.telefono = numero
+    #user.numdoc = rut
+    #user.password = password
+
+
+    #user.tipodoc = tip_2
+    #user.tipouser = tipo_2
+
+    user.save()
+    us.save()
+    messages.success(request, 'Usuario Modificado')
+    return redirect('inicio')
+
+
+# CARRITO
+@login_required
+def carrito(request):
+    userr = Usuario.objects.get(numdoc = request.user.id) #Generando select * from tabla user
+    us2 = Usuario.objects.get(numdoc = request.user.id)
+    carrito = Carrito.objects.filter(usuario = us2)
+    total2 = Carrito.objects.filter(usuario = us2).count()
+    if total2 == 0 :
+        total = 0
+        n = 0
+    else: 
+        total = Carrito.objects.filter(usuario = us2).aggregate(Sum('subtotal'))
+        n = 1 
+    context = {
+        "carrito":carrito,
+        "total":total,
+        "n":n,
+        "usu":userr
+    }
+    return render(request,'tool/carrito.html',context)
+
+def agregar_carrito (request,id):
+    can = request.POST['cant']
+    pro = Producto.objects.get(codigo = id)
+    usu = Usuario.objects.get(numdoc = request.user.id)
+    subtotal = int(can) * int(pro.precio)
+    Carrito.objects.create(cantidad = can, subtotal = subtotal, usuario = usu, producto = pro)
+    messages.success(request,'Producto agregado al carrito!')
+    return redirect('carrito')
+
+def eliminarcarrito(request, id):
+    contacto = Carrito.objects.get(idCarrito = id)
+    contacto.delete()
+    #messages.success(request,'Producto eliminado del carro!')
+
+    return redirect('carrito')
+def gracias (request):
+    return render(request,'tool/gracias.html')
+
+def vaciarcarrito(request):
+    ru = Usuario.objects.get(numdoc = request.user.id)
+    vac = Carrito.objects.filter(usuario = ru.idUser)
+    vac.delete()
+    return redirect('gracias')

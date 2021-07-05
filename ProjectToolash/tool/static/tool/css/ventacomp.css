@@ -20,9 +20,9 @@
     padding-top: 5px;
 
     display: block;
-    width: 78px;
+    width: 100px;
     height: 35px;
-    background-color: #0d6efd;
+    background-color: #1a2537;
     border-radius: 16px;
     
 
@@ -32,9 +32,10 @@
     -ms-transition: 1s;
 }
 
+
 .butom-buy a:hover{
-    background-color: rgba(0, 26, 255, 0.74);
-    width: 95px;
+    background-color: cadetblue;
+    width: 120px;
 }
 
 .separaciones_articulos{

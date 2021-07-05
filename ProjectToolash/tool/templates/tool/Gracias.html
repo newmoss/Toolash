@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Refresh" content="3;{% url 'inicio' %}">
 
     <!--BOOTSTRAP-->
     <link rel="icon" type="image/jgp" href="{% static 'tool/img/social/icono.png' %}" alt="Icono pestaña">
@@ -23,7 +24,10 @@
         integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
         crossorigin="anonymous"></script>
 
-    <title>Venta componentes</title>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <title>Administracion</title>
 </head>
 
 <body>
@@ -50,9 +54,51 @@
 
                 <a class="nav-item nav-link" href="{% url 'seguridad' %}">Seguridad</a>
 
-                <a class="nav-item nav-link active" href="{% url 'venta' %}">Componentes</a>
+                <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
 
-                <div class="d-flex flex-row justify-content-center ">
+                <a class="collapse d-flex flex-row justify-content-center boton_bord bot_bord"
+                    href="{% url 'carrito' %}" style="float: right; font-size: 14px;">
+                    <img src="{% static 'tool/img/cart.jpeg' %}" height="35px" width="35px"
+                        class="d-inline-block align-top"></img>
+                </a>
+
+                {% if user.is_authenticated and user.is_staff %}
+                <li class="nav-item dropdown">
+                    <a class="btn btn-outline-danger dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+                            class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                            <path fill-rule="evenodd"
+                                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                        </svg> {{ user.first_name }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'options' %}">Administracion</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesion</a>
+                    </div>
+                </li>
+                {% else %}
+
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="btn btn-outline-danger dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+                            class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                            <path fill-rule="evenodd"
+                                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                        </svg> {{ user.first_name }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesion</a>
+                    </div>
+                </li>
+                {% else %}
+                <div class="d-flex flex-row justify-content-around ">
                     <a href="{% url 'login' %}" class="btn btn-outline-danger">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
                             class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -62,10 +108,10 @@
                         </svg> Unirse
                     </a>
                 </div>
+                {% endif %}{% endif %}
             </div>
         </div>
     </nav>
-    <br>
     <!--INICIO BOTON SUBIR-->
     <a id="move-to-top" class="animate filling" href="#">
         <i class="fa fa-angle-up"></i>
@@ -73,59 +119,26 @@
     <script src="{% static 'tool/js/gotop.js' %}"></script>
     <!--FIN BOTON SUBIR-->
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 search">
-                <form id="form" method="get" class="form d-flex" >
-                    <div id="custom-search-input" class="form-control">
-                        <input type="text" id="search" placeholder="Buscar..." minlength="2" id="search" name="search"requeride />
-                        <span class="input-group-list">
-                            <small>Error message</small>
-                            <i class="icon icon-search"></i> 
-                            
-                        </span>
-                    </div>
-                        <button type="submit" class="btn btn-center">Buscar</button>
+    <script type="text/javascript">
+            swal("Gracias por su compra!", "En los próximos 5 segundos, será redireccionado al sitio para finalizar la transacción!", "success");
 
-                   
-                </form>
-            </div>
-        </div>
-        <div class="container marg_sup marg_inf">
-            <div class="row">
-                <h1> Productos</h1>
-            </div>
-            <div class="row marg_inf">
-                <table class="table table-striped">
-                    <tr>
-                        <td>Codigo</td>
-                        <td>Nombre </td>
-                        <td>Precio</td>
-                        <td>Stock</td>
-                        <td>Imagen</td>
-                        <td>Categoria</td>
-                        <td>Opciones</td>
-                    </tr>
-                    {% for x in productos %}
-                    <tr>
-                        <td>{{ x.codigo }}</td>
-                        <td>{{ x.nombreProducto }}</td>
-                        <td>{{ x.precio }}</td>
-                        <td>{{ x.stock }}</td>
-                        <td>
-                            <img src="{{ x.imagen.url }}" style="width: 100%;max-width: 150px;" alt="">
-                        </td>
-                        <td>{{ x.categoria }}</td>
-                        <td><a class="btn btn-center btn-outline-danger active marg" href="{% url 'deletepr' x.codigo %}" >Eliminar</a> <a class="btn btn-center btn-outline-primary active" href="{% url 'modificar_pro' x.codigo %}" >Modificar</a> </td>
-                    </tr>
-                    {% endfor %}
-                </table>
-            </div>
-
-    </div></div>
-    <br>
+    </script>
+    <div class="container" style="margin-top: 80px;margin-bottom: 80px;">
+        <h1 style="text-align: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" fill="currentColor"
+                class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+                <path
+                    d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708z" />
+            </svg>
+        </h1>
+        <h1
+            style="text-align: center; font-style:italic; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;margin-top: 20px;">
+            GRACIAS POR SU COMPRA!
+            <p style="margin-top: 30px;">En los próximos 5 segundos, será redireccionado al sitio para finalizar la transacción!</p>
+        </h1>
+    </div>
     <!--FOOTER-->
-    <footer style="background-color: #212529">
+    <footer style="background-color: #212529;">
         <div class="container">
             <div class="row ">
                 <!--Links y copy-->
@@ -137,7 +150,7 @@
                             |
                             <a class="text-white" href="{% url 'nosotros' %}">Nosotros</a>
                             |
-                            <a class="text-white" href="{% ulr 'servicios'}">Servicios</a>
+                            <a class="text-white" href="{% url 'servicios' %}">Servicios</a>
                             |
                             <a class="text-white" href="{% url 'tiendas' %}">Tiendas</a>
                         </p>
@@ -179,7 +192,6 @@
             </div>
         </div>
     </footer>
-    <script src="{% static 'tool/js/search.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

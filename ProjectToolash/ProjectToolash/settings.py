@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tool',
+    'rest_framework',
+    'rest_pro',
+    'rest_framework.authtoken',
+
 ]
 
 MIDDLEWARE = [
@@ -136,3 +140,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'inicio'
+LOGIN_URL ='login'
+

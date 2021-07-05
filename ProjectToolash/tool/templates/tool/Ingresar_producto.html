@@ -22,6 +22,7 @@
 
     <!--GOTOP-->
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <title>Registrar</title>
 </head>
@@ -52,18 +53,47 @@
 
                 <a class="nav-item nav-link" href="{% url 'venta' %}">Componentes</a>
 
-                {% if user.is_authenticated %}
-                <div class="d-flex flex-row justify-content-center ">
-                    <p></p>
-                    <a href="{% url 'logout' %}" class="btn btn-outline-danger">
+                <a class="collapse d-flex flex-row justify-content-center boton_bord bot_bord"
+                    href="{% url 'carrito' %}" style="float: right; font-size: 14px;">
+                    <img src="{% static 'tool/img/cart.jpeg' %}" height="35px" width="35px"
+                        class="d-inline-block align-top"></img>
+                </a>
+
+                {% if user.is_authenticated and user.is_staff %}
+                <li class="nav-item dropdown">
+                    <a class="btn btn-outline-danger dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
-                            class="bi bi-person-circle" viewBox="0 0 16 16">
-                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
-                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                        </svg> Cerrar sesion {{ user.username }}
+                                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                            <path fill-rule="evenodd"
+                                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                        </svg> {{ user.first_name }}
                     </a>
-                </div>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'options' %}">Administracion</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesion</a>
+                    </div>
+                </li>
+                {% else %}
+
+                {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="btn btn-outline-danger dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+                            class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                            <path fill-rule="evenodd"
+                                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                        </svg> {{ user.first_name }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesion</a>
+                    </div>
+                </li>
                 {% else %}
                 <div class="d-flex flex-row justify-content-around ">
                     <a href="{% url 'login' %}" class="btn btn-outline-danger">
@@ -75,7 +105,7 @@
                         </svg> Unirse
                     </a>
                 </div>
-                {% endif %}
+                {% endif %}{% endif %}
             </div>
         </div>
     </nav>
@@ -86,17 +116,20 @@
     </a>
     <script src="{% static 'tool/js/gotop.js' %}"></script>
     <!--FIN BOTON SUBIR-->
-
+    {% if user.is_authenticated and user.is_staff %}
+    {% if messages %}
+    <div class="bg-dark mx-2 font-italic text-center text-warning " style="width: 100%;">
+        {% for i in messages %}
+        <script type="text/javascript">
+            swal("Producto Agregado!", "", "success");
+        </script>
+        {% endfor %}
+    </div>
+    {% endif %}
     <div class="containera marg">
+    
         <div class="row">
-            {% if messages %}
-            <div>
-                {% for i in messages %}
-                <p style="color: red;">{{ i }}</p>
-                {% endfor %}
-            </div>
 
-            {% endif %}
             <div class="header">
                 <h2>Registrar Producto</h2>
             </div>
@@ -104,21 +137,21 @@
                 {% csrf_token %}
                 <div class="form-control">
                     <label>Nombre Producto</label>
-                    <input type="text" id="nombreProducto" name="nombreProducto" />
+                    <input type="text" id="nombreProducto" name="nombreProducto" required/>
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
                     <small>Error message</small>
                 </div>
                 <div class="form-control">
                     <label>Precio</label>
-                    <input type="number" id="precio" name="precio" />
+                    <input type="number" id="precio" name="precio" required/>
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
                     <small>Error message</small>
                 </div>
                 <div class="form-control">
                     <label>Stock</label>
-                    <input type="number" id="stock" name="stock" />
+                    <input type="number" id="stock" name="stock" required/>
                     <i class="fas fa-check-circle"></i>
                     <i class="fas fa-exclamation-circle"></i>
                     <small>Error message</small>
@@ -132,7 +165,7 @@
                 </div>
                 <div class="form-control">
                     <label>Categoria: </label>
-                    <select class="form-control" name="cat" id="cat">
+                    <select class="form-control" name="cat" id="cat"required>
                         {% for x in cat_m %}
                         <option value="{{ x.idCategoria }}">{{ x.nombreCat }}</option>
                         {% endfor %}
@@ -140,10 +173,15 @@
                 </div>
 
                 <br>
-                <button type="submit" class="btn btn-center">Modificar</button>
+                <button type="submit" class="btn ">Registrar producto</button>
             </form>
         </div>
     </div>
+    {% else %}
+    <div class="container" style="margin-top: 300px;margin-bottom: 300px;">
+        <h1 style="text-align: center;">NO TIENE ACCESO</h1>
+    </div>
+    {% endif %}
 </body>
 
 </html>
